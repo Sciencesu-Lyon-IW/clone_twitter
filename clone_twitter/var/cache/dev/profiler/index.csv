@@ -1,0 +1,13 @@
+72cc18,127.0.0.1,GET,http://clonetwitter.com/,1608332483,,404
+c6cd24,127.0.0.1,GET,http://clonetwitter.com/admin,1608332486,076ee5,404
+076ee5,127.0.0.1,GET,http://clonetwitter.com/admin,1608332486,,404
+dcbf1c,127.0.0.1,GET,http://clonetwitter.com/,1608333218,,404
+961764,127.0.0.1,GET,http://clonetwitter.com/login,1608333221,,200
+c036d6,127.0.0.1,POST,http://clonetwitter.com/login,1608333237,,302
+c103db,127.0.0.1,GET,http://clonetwitter.com/login,1608333237,,200
+69a876,127.0.0.1,GET,http://clonetwitter.com/,1608333355,,404
+704574,127.0.0.1,GET,http://clonetwitter.com/login,1608333728,,200
+1eb86c,127.0.0.1,POST,http://clonetwitter.com/login,1608333733,,302
+540d03,127.0.0.1,GET,http://clonetwitter.com/login,1608333733,,200
+7e8d29,127.0.0.1,GET,http://clonetwitter.com/register,1608333737,,200
+650b09,127.0.0.1,GET,http://clonetwitter.com/,1608333863,,200

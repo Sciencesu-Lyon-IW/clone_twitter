@@ -5,37 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="204aea09-bee1-46ae-bb0d-1b87d8d83946" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/clone_twitter/assets/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/assets/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/assets/controllers.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/assets/controllers/hello_controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/assets/styles/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/assets/styles/tailwind.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/config/packages/assets.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/config/packages/prod/webpack_encore.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/config/packages/test/webpack_encore.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/config/packages/webpack_encore.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/migrations/Version20201218230634.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/src/Controller/SecurityController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/src/Controller/UserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/src/Entity/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/src/EventSubscriber/RequestSubscriber.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/src/Repository/UserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/tailwind.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/templates/security/login.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/templates/user/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/translations/security.en.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/webpack.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clone_twitter/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clone_twitter/.env" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clone_twitter/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clone_twitter/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clone_twitter/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clone_twitter/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clone_twitter/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clone_twitter/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +198,7 @@
       <workItem from="1608210481436" duration="40441000" />
       <workItem from="1608326403380" duration="3293000" />
       <workItem from="1608329787178" duration="1519000" />
-      <workItem from="1608331421694" duration="2506000" />
+      <workItem from="1608331421694" duration="2653000" />
     </task>
     <servers />
   </component>
