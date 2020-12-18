@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.theme {
+    background-color: #ececec;
+    --color-bg-primary: #fff;
+    --color-bg-secondary: #f2a365;
+    --color-bg-default: #222831;
+    --color-bg-inverse: #30475e;
+    --color-bg-checkbox: #1890ff;
+
+    --color-text-primary: #222831;
+    --color-text-secondary: #30475e;
+    --color-text-default: #373737;
+    --color-text-default-soft: #f2a365;
+    --color-text-inverse: #fff;
+    --color-text-inverse-soft: #ececec;
+
+
+    --font-display: Futura, Trebuchet MS, Arial, sans-serif;
+    --font-body: Futura, Trebuchet MS, Arial, sans-serif;
+
+    --font-weight-normal: 400;
+    --font-weight-display: 600;
+    --font-weight-btn: 600;
+
+    --rounded-btn: 0.25rem;
+
+
+}
+.hover\:bg-black:hover {
+    background-color: #f2a365;
+}
+.theme-dark {
+    --color-bg-primary: #0252cc;
+    --color-bg-secondary: #ffc402;
+    --color-bg-default: #fff;
+    --color-bg-inverse: #fff;
+
+    --color-text-primary: #fff;
+    --color-text-secondary: #755f17;
+    --color-text-default: #444;
+    --color-text-default-soft: #999;
+    --color-text-inverse: #444;
+    --color-text-inverse-soft: #999;
+
+    --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    --font-weight-normal: 400;
+    --font-weight-display: 400;
+    --font-weight-btn: 600;
+
+    --rounded-btn: 0.25rem;
+}
+

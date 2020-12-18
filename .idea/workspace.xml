@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="204aea09-bee1-46ae-bb0d-1b87d8d83946" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/clone_twitter/assets/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/assets/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/assets/controllers.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/assets/controllers/hello_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/assets/styles/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/assets/styles/tailwind.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/config/packages/assets.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/config/packages/prod/webpack_encore.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/config/packages/test/webpack_encore.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/config/packages/webpack_encore.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/migrations/Version20201218230634.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/src/Controller/SecurityController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/src/Controller/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/src/Entity/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/src/EventSubscriber/RequestSubscriber.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/src/Repository/UserRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/src/Security/LoginFormAuthenticator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/tailwind.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/templates/security/login.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/templates/user/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/translations/security.en.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone_twitter/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clone_twitter/.env" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clone_twitter/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clone_twitter/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clone_twitter/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clone_twitter/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clone_twitter/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clone_twitter/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/clone_twitter/symfony.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/clone_twitter/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/clone_twitter" />
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="clonetwitter.com" id="8e024923-bd8c-49d9-b05c-121abe5df5ff" name="LOCALHOST" />
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4.8">
+    <include_path>
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/notifier" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/composer" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/webimpress/safe-writer" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/ocramius/proxy-manager" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/web-link" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfonycasts/verify-email-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/api-platform/core" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/willdurand/negotiation" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/nelmio/cors-bundle" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1lk3KzgB8RyGoVDdwmyCcIq0F6b" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/clone_twitter/assets/styles" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\Campus-U\MIW\Symfony\clone_twitter\clone_twitter" />
+      <recent name="D:\Documents\Campus-U\MIW\Symfony\clone_twitter\clone_twitter\config" />
+      <recent name="D:\Documents\Campus-U\MIW\Symfony\clone_twitter\clone_twitter\var" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\Campus-U\MIW\Symfony\clone_twitter\clone_twitter\assets\styles" />
+      <recent name="D:\Documents\Campus-U\MIW\Symfony\clone_twitter\clone_twitter\public" />
+      <recent name="D:\Documents\Campus-U\MIW\Symfony\clone_twitter\clone_twitter\public\build" />
+      <recent name="D:\Documents\Campus-U\MIW\Symfony\clone_twitter\clone_twitter\assets\css" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" nameIsGenerated="true" browser="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" server_name="LOCALHOST">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="204aea09-bee1-46ae-bb0d-1b87d8d83946" name="Default Changelist" comment="" />
+      <created>1608127201568</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608127201568</updated>
+      <workItem from="1608127202632" duration="5829000" />
+      <workItem from="1608210481436" duration="40441000" />
+      <workItem from="1608326403380" duration="3293000" />
+      <workItem from="1608329787178" duration="1519000" />
+      <workItem from="1608331421694" duration="2506000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="348" y="87" key="#CLI_Interpreters" timestamp="1608218810493">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="348" y="87" key="#CLI_Interpreters/0.0.1536.864@0.0.1536.864" timestamp="1608218810493" />
+    <state x="348" y="99" key="#Servers" timestamp="1608284115203">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="348" y="99" key="#Servers/0.0.1536.864@0.0.1536.864" timestamp="1608284115203" />
+    <state x="223" y="87" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608284118662">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="223" y="87" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1608284118662" />
+    <state x="550" y="222" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608297404914">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="550" y="222" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1608297404914" />
+    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1608298585138">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1608298585138" />
+    <state x="480" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1608290428138">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="480" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1608290428138" />
+    <state x="499" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608282233029">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="499" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1608282233029" />
+    <state x="532" y="343" key="ComposerInitDialogKey" timestamp="1608327549449">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="532" y="343" key="ComposerInitDialogKey/0.0.1536.864@0.0.1536.864" timestamp="1608327549449" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1608306693709">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1608306693709" />
+    <state width="1493" height="217" key="GridCell.Tab.0.bottom" timestamp="1608331306532">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="217" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1608331306532" />
+    <state width="1493" height="217" key="GridCell.Tab.0.center" timestamp="1608331306532">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="217" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1608331306532" />
+    <state width="1493" height="217" key="GridCell.Tab.0.left" timestamp="1608331306532">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="217" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1608331306532" />
+    <state width="1493" height="217" key="GridCell.Tab.0.right" timestamp="1608331306532">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="217" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1608331306532" />
+    <state x="460" y="139" key="NewPhpClassDialog" timestamp="1608333273670">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="460" y="139" key="NewPhpClassDialog/0.0.1536.864@0.0.1536.864" timestamp="1608333273670" />
+    <state x="604" y="352" key="NewPhpFileDialog" timestamp="1608288327259">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="604" y="352" key="NewPhpFileDialog/0.0.1536.864@0.0.1536.864" timestamp="1608288327259" />
+    <state x="277" y="77" key="SettingsEditor" timestamp="1608329806756">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1608329806756" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1608302184615">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1536.864@0.0.1536.864" timestamp="1608302184615" />
+    <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1608288935792">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.864@0.0.1536.864" timestamp="1608288935792" />
+    <state x="485" y="240" key="jetbrains.nodejs.interpreters-dialog" timestamp="1608220209302">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="485" y="240" key="jetbrains.nodejs.interpreters-dialog/0.0.1536.864@0.0.1536.864" timestamp="1608220209302" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1608333374357">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1608333374357" />
+  </component>
+</project>
