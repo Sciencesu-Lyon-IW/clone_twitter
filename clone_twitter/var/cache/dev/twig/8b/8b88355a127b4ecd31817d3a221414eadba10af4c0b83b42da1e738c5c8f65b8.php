@@ -52,19 +52,20 @@ class __TwigTemplate_932a7b3d1b16a266164acbc9e80a0384551143a88c0ce959706b7a53820
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
+
         ";
-        // line 6
-        $this->displayBlock('stylesheets', $context, $blocks);
         // line 7
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 8
         echo "    </head>
     <body>
         ";
-        // line 9
-        $this->displayBlock('body', $context, $blocks);
         // line 10
+        $this->displayBlock('body', $context, $blocks);
+        // line 11
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 11
+        // line 12
         echo "    </body>
 </html>
 ";
@@ -95,7 +96,7 @@ class __TwigTemplate_932a7b3d1b16a266164acbc9e80a0384551143a88c0ce959706b7a53820
 
     }
 
-    // line 6
+    // line 7
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -113,7 +114,7 @@ class __TwigTemplate_932a7b3d1b16a266164acbc9e80a0384551143a88c0ce959706b7a53820
 
     }
 
-    // line 9
+    // line 10
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -131,7 +132,7 @@ class __TwigTemplate_932a7b3d1b16a266164acbc9e80a0384551143a88c0ce959706b7a53820
 
     }
 
-    // line 10
+    // line 11
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -156,7 +157,7 @@ class __TwigTemplate_932a7b3d1b16a266164acbc9e80a0384551143a88c0ce959706b7a53820
 
     public function getDebugInfo()
     {
-        return array (  135 => 10,  117 => 9,  99 => 6,  80 => 5,  68 => 11,  65 => 10,  63 => 9,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  136 => 11,  118 => 10,  100 => 7,  81 => 5,  69 => 12,  66 => 11,  64 => 10,  60 => 8,  58 => 7,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -166,6 +167,7 @@ class __TwigTemplate_932a7b3d1b16a266164acbc9e80a0384551143a88c0ce959706b7a53820
     <head>
         <meta charset=\"UTF-8\">
         <title>{% block title %}Welcome!{% endblock %}</title>
+
         {% block stylesheets %}{% endblock %}
     </head>
     <body>

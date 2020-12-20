@@ -20,6 +20,14 @@ return [[
                 '/build/app.css',
             ],
         ],
+        'tailwind' => [
+            'js' => [
+                '/build/runtime.js',
+            ],
+            'css' => [
+                '/build/tailwind.css',
+            ],
+        ],
     ],
 ],
 

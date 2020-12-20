@@ -54,7 +54,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $creatAt;
+    private $created_at;
 
     /**
      * @ORM\Column(type="boolean")
@@ -175,7 +175,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getCreatAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         $creatAt = $this->creatAt;
         // guarantee every user at least has ROLE_USER
@@ -184,7 +184,7 @@ class User implements UserInterface
         return $this->creatAt;
     }
 
-    public function setCreatAt(?\DateTimeInterface $creatAt): self
+    public function setCreatedAt(?\DateTimeInterface $creatAt): self
     {
         $this->creatAt = $creatAt;
 

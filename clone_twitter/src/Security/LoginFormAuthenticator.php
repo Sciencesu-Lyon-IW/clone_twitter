@@ -56,7 +56,6 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
             Security::LAST_USERNAME,
             $credentials['email']
         );
-
         return $credentials;
     }
 
@@ -87,6 +86,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
      */
     public function getPassword($credentials): ?string
     {
+
         return $credentials['password'];
     }
 
@@ -97,7 +97,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         }
 
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        return new  RedirectResponse($this->urlGenerator->generate('home'));
+        return new  RedirectResponse($this->urlGenerator->generate('user'));
     }
 
     protected function getLoginUrl()

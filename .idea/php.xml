@@ -114,7 +114,13 @@
       <path value="$PROJECT_DIR$/clone_twitter/vendor/fig/link-util" />
       <path value="$PROJECT_DIR$/clone_twitter/vendor/willdurand/negotiation" />
       <path value="$PROJECT_DIR$/clone_twitter/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/ramsey/uuid-doctrine" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/clone_twitter/vendor/symfony/polyfill-uuid" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
 </project>
