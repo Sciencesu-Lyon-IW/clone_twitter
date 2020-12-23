@@ -206,7 +206,8 @@
       <workItem from="1608326403380" duration="3293000" />
       <workItem from="1608329787178" duration="1519000" />
       <workItem from="1608331421694" duration="2653000" />
-      <workItem from="1608408183011" duration="6133000" />
+      <workItem from="1608408183011" duration="8862000" />
+      <workItem from="1608729887261" duration="1789000" />
     </task>
     <servers />
   </component>
@@ -217,6 +218,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
+      <path value="$PROJECT_DIR$/clone_twitter" />
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
@@ -284,10 +286,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="604" y="352" key="NewPhpFileDialog/0.0.1536.864@0.0.1536.864" timestamp="1608288327259" />
-    <state x="277" y="77" key="SettingsEditor" timestamp="1608408253382">
+    <state x="277" y="77" key="SettingsEditor" timestamp="1608734352558">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1608408253382" />
+    <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1608734352558" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1608302184615">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
