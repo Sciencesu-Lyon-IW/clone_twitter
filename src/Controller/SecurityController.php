@@ -28,6 +28,7 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 
+<<<<<<< HEAD
     /**
      * @Route("/register", name="app_register")
      */
@@ -35,6 +36,9 @@ class SecurityController extends AbstractController
     {
         return $this->render('auth/register.html.twig');
     }
+=======
+
+>>>>>>> master
 
     /**
      * @Route("/logout", name="app_logout")
