@@ -7,19 +7,50 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                {{ form_start(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.name) }}
-        {{ form_row(registrationForm.firstname) }}
-        {{ form_row(registrationForm.birthdate) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+                    <h1>Inscrit toi</h1>
+                    {#            <span>or use your email for registration</span>#}
+                {{ form_widget(registrationForm.email) }}
+                {{ form_widget(registrationForm.username) }}
+                    {{ form_widget(registrationForm.name) }}
+                    {{ form_widget(registrationForm.firstname) }}
+                    {{ form_widget(registrationForm.birthdate) }}
+                    {{ form_widget(registrationForm.plainPassword, {
+                        label: 'Password'
+                    }) }}
+                    {{ form_widget(registrationForm.agreeTerms) }}
+                  {#  <input type="text" placeholder="Name" />
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" /> #}
+                    <button>Créer mon compte</button>
+                {{ form_end(registrationForm) }}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="{{ path('app_login') }}">
+                    <h1>Connecte toi</h1>
+
+                    <button><a href="{{ path('/login') }}">Connexion</a></button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>De retour!</h1>
+                        <p>Viens te connecter si tu as déjà un compte</p>
+                        <button class="ghost" id="signIn">Connexion</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello, mon ami!</h1>
+                        <p>Viens créer ton compte pour découvrir Clone Twitter</p>
+                        <button class="ghost" id="signUp">Créer mon compte</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 {% endblock %}
