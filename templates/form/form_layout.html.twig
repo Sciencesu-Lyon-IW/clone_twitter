@@ -1,0 +1,64 @@
+{% use "form_div_layout.html.twig" %}
+
+{%- block form_errors -%}
+    {%- if errors|length > 0 -%}
+        <div class="md:flex md:items-center mb-4">
+            <div class="md:w-2/3">
+                <ul class="list-reset">
+                    {%- for error in errors -%}
+                        <li class="text-red text-xs italic">{{ error.message }}</li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+        </div>
+    {%- endif -%}
+{%- endblock form_errors -%}
+
+{% block text_widget %}
+    {%- set type = type|default('text') -%}
+    {{ block('form_widget_simple') }}
+{% endblock %}
+
+{%- block form_label -%}
+
+    <label for="{{ full_name }}" class="{{ block('form_label_class')}}">{{ name }}</label>
+
+{%- endblock form_label -%}
+
+
+{%- block form_widget_simple -%}
+
+    <input type="{{ type }}"
+           id="{{ id}}"
+           name={{ full_name }}
+           class="{{ block('input_class') }}"
+           placeholder="{{ name }}"
+           {% if value is not empty %}value="{{ value }}"{% endif %}
+            {% if required is defined %} {% endif %}>
+{%- endblock form_widget_simple -%}
+
+    {%- set widget_attr = {} -%}
+<div class="flex">
+    <div class="flex items-center px-3 inline-block">
+
+    </div>
+</div>
+{{ form_errors(form)  }}
+
+            {{- form_help(form) -}}
+
+{% block form_label_class -%}
+    block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2
+{% endblock form_label_class -%}
+
+{% block input_class -%}
+    {% if form.vars.errors|length %}border-red border-1{% endif %}input
+{% endblock input_class -%}
+
+{% block form_group_class -%}
+    md:w-2/3
+{% endblock form_group_class -%}
+
+{% block custom_button_class -%}
+
+{% endblock custom_button_class -%}
