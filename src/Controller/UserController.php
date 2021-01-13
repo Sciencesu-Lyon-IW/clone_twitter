@@ -44,6 +44,7 @@ class UserController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(User::class);
         $product = $repository->find($user->getId());
         $user = new User();
+        /*$user = new User();*/
         $this->getDoctrine()->getManager()->flush();
 
 
