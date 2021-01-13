@@ -17,6 +17,18 @@ class UserController extends AbstractController
 {
 
     /**
+     * @Route("/dashboard", name="dashboard")
+     * @return Response
+     */
+    public function dashboard(): Response
+    {
+        return $this->render('user/index.html.twig', [
+            'controller_name' => 'UserController',
+            'user' => $this->getUser(),
+        ]);
+    }
+
+    /**
      * @Route("/{username}", name="user_profile")
      * @param Request $request
      * @return Response
@@ -27,20 +39,6 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
-
-    /**
-     * @Route("/dashboard", name="dashboard")
-     * @return Response
-     */
-    public function dashboard(): Response
-    {
-        return $this->render('user/dashboard.html.twig', [
-            'controller_name' => 'UserController',
-            'user' => $this->getUser(),
-        ]);
-    }
-
-
 
     /*
     * @Route("/profile/{id}", name="user_profile", methods={"GET","POST"})
