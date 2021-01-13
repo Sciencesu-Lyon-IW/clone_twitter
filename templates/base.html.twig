@@ -16,12 +16,12 @@
             <li><a href="{{ path('home') }}">Messages</a></li>
             <li><a href="{{ path('home') }}">Bookmarks</a></li>
             <li><a href="{{ path('home') }}">Lists</a></li>
-            <li><a href="{{ path('user_profile') }}">Profile</a></li>
+            <li><a href="{{ path('user_profile', {'username': app.user.username}) }}">Profile</a></li>
             <li><a href="{{ path('home') }}">More</a></li>
         </ul>
         <button>Tweet</button>
         <div>
-            <div>Username</div>
+            <div>{{ app.user.username }}</div>
         </div>
     </header>
         {% block body %}{% endblock %}
