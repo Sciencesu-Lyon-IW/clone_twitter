@@ -18,11 +18,10 @@ class UserController extends AbstractController
 
     /**
      * @Route("/{username}", name="user_profile")
-     * @param User $user
      * @param Request $request
      * @return Response
      */
-    public function index(User $user, Request $request, $username): Response
+    public function index(Request $request, $username): Response
     {
         return $this->render('user/index.html.twig', [
             'controller_name' => 'UserController',
