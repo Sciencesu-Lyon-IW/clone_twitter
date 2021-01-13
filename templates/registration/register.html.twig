@@ -1,7 +1,22 @@
+<<<<<<< HEAD
 {#{% extends 'base.html.twig' %}#}
 
 {% block stylesheets %}{% endblock %}
 <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}Register{% endblock %}
+
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <title></title>
+
+</head>
+<body>
+>>>>>>> master
 
 {% block body %}
     {% for flashError in app.flashes('verify_email_error') %}
@@ -79,6 +94,24 @@
         </div>
 
 {% endblock %}
+<<<<<<< HEAD
 
 {% block javascripts %}{% endblock %}
 <script src="{{ asset('js/script.js') }}"></script>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+
+</head>
+
+{% block javascripts %}{% endblock %}
+<script src="{{ asset('js/script.js') }}"></script>
+
+</body>
+</html>
+>>>>>>> master

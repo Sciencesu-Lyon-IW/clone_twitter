@@ -1,0 +1,502 @@
+/*! General settings */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+body {
+    background-color: black;
+}
+#main {
+    /* border: 1px white solid; */
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.side,
+#content {
+    height: 100vh;
+}
+
+.side {
+    width: 20%;
+}
+
+/*! Left side bar */
+#sideL {
+    /* border-left: 2px white solid; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+nav a:hover > .insideL,
+nav a:hover > .sideLText {
+    background-color: rgba(29, 161, 242, 0.15);
+    color: rgba(29, 161, 242, 1.00);
+}
+/* {
+} */
+
+.insideL {
+    display: flex;
+    width: auto;
+    display: inline-block;
+    padding: 7px 10px;
+    box-sizing: border-box;
+    border-radius: 50px;
+    text-align: center;
+}
+
+nav i {
+    width: 40px;
+    font-size: 25px;
+}
+
+.sideLIcon,
+.sideLText {
+    display: inline-block;
+    /* color: white; */
+}
+.sideLText {
+    font-size: 20px;
+}
+
+#twitterDiv,
+.fa-twitter {
+    padding: 4px;
+    width: auto;
+    border-radius: 100%;
+    /* padding: 0; */
+}
+
+#tweet {
+    width: 80%;
+    margin-top: 10px;
+}
+
+#publishTweet:hover,
+#tweet:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgba(29, 161, 242, 0.90);
+}
+
+#publishTweet,
+#tweet {
+    padding: 12px;
+    color: white;
+    text-align: center;
+    background-color: rgba(29, 161, 242, 1.00);
+}
+
+#perfilSideL {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+#perfilSideL:hover {
+    background-color: rgba(29, 161, 242, 0.15);
+    cursor: pointer;
+}
+#perfilSideL:hover > .fa-angle-right {
+    color: rgba(29, 161, 242, 1.00);
+}
+#icon {
+    display: inline-block;
+}
+#icon {
+    font-size: 50px;
+    margin-right: 10px;
+}
+
+#nameUsername {
+    display: flex;
+    width: 70%;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.fa-angle-right {
+    transform: rotate(90deg);
+    font-size: 20px;
+}
+
+/*! Main content */
+#content {
+    width: 45%;
+    border: 0.2px rgb(124, 124, 124) solid;
+    border-top: none;
+    border-bottom: none;
+    height: 100%;
+    border-bottom: none;
+}
+
+#homeDiv {
+    box-sizing: border-box;
+    padding: 15px;
+    height: 50px;
+    border: 0.2px rgb(124, 124, 124) solid;
+    border-top: none;
+    background-color: black; /*Black*/
+}
+
+#whatsHappening {
+    box-sizing: border-box;
+    padding: 15px;
+    display: flex;
+    padding-bottom: 0;
+    border-bottom: 7px rgba(124, 124, 124, 0.3) solid;
+}
+#whatsHapIcon .fa-user-circle {
+    font-size: 50px;
+}
+
+#whatsHapIcon {
+    display: inline-block;
+    width: 8%;
+    text-align: center;
+}
+#tweetEditor {
+    display: inline-block;
+    width: 90%;
+}
+
+.textarea {
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    min-height: 40px;
+    line-height: 20px;
+    max-width: 39vw;
+}
+.textarea:focus {
+    border-color: black;
+}
+
+.textarea[contenteditable]:empty::before {
+    content: "What's happening?";
+    color: gray;
+}
+
+#tweetIcons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+#tweetIcons i {
+    color: rgba(29, 161, 242, 1.00);
+    padding: 5px;
+}
+
+#tweetIconsLeft i {
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+#tweetIconsLeft,
+#tweetIconsRight {
+    display: inline-block;
+}
+
+#tweetIconsRight {
+    display: flex;
+    width: 20%;
+    align-items: center;
+}
+
+#tweetIconsRight .fa-plus {
+    margin-right: 10px;
+    font-size: 20px;
+    color: rgba(29, 161, 242, 1.00);
+    border-radius: 100%;
+    padding: 10px;
+    border: 1px rgba(29, 161, 242, 1.00) solid;
+}
+
+#publishTweet {
+    line-height: 17px;
+    border: 1px rgba(29, 161, 242, 1.00) solid;
+    border-radius: 50px;
+}
+
+.hoverDarkBackground:hover {
+    background-color: rgba(29, 161, 242, 0.15);
+    cursor: pointer;
+}
+
+/*! Individual Tweet */
+.individualTweet {
+    border-bottom: 1px rgba(124, 124, 124, 1) solid;
+    display: flex;
+    box-sizing: border-box;
+    padding: 15px;
+}
+.individualTweet:hover {
+    background-color: rgba(66, 66, 66, 0.2);
+}
+
+.tweetUserIcon i {
+    font-size: 50px;
+}
+
+.individualContent {
+    width: 90%;
+    box-sizing: border-box;
+    padding: 15px;
+    padding-bottom: 0;
+}
+
+.names {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.individualName {
+    font-weight: bold;
+}
+.dot {
+    /* border: 1px rgb(124, 124, 124, 1) solid; */
+    border-radius: 100%;
+    width: 3px;
+    height: 3px;
+    background-color: rgba(124, 124, 124, 1);
+}
+.individualName,
+.individualUsername,
+.dot {
+    margin-right: 5px;
+}
+
+.individualUsername,
+.time {
+    color: rgba(124, 124, 124, 1);
+}
+
+.individualIcons {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.individualInfo {
+    cursor: pointer;
+    padding: 5px;
+}
+.individualInfo i {
+    color: rgba(124, 124, 124, 1);
+    margin-right: 10px;
+}
+.iconShare i{
+    margin: 0;
+}
+.individualNumber {
+    color: rgba(124, 124, 124, 1);
+}
+
+.individualInfo {
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 50px;
+}
+.iconComment:hover > i.fa-comment,
+.iconComment:hover > .individualNumber,
+.iconShare:hover >  .fa-share-square{
+    color: rgba(29, 161, 242, 1.00);
+}
+.iconComment:hover,
+.iconShare:hover {
+    background-color: rgba(29, 161, 242, 0.15);
+}
+
+.iconLike:hover > i.fa-heart,
+.iconLike:hover > .individualNumber {
+    color: rgb(242, 29, 100);
+}
+.iconLike:hover {
+    background-color: rgba(242, 29, 100, 0.082);
+}
+
+.iconRetweet:hover > i.fa-retweet,
+.iconRetweet:hover > .individualNumber {
+    color: rgb(29, 242, 82);
+}
+.iconRetweet:hover {
+    background-color: rgba(138, 223, 161, 0.082);
+}
+
+/*! Right side bar */
+#sideR {
+    width: 25%;
+    padding: 5px;
+}
+
+#sideRSearch, #trends, #who-follow{
+    width: 90%;
+    margin: auto;
+}
+
+#sideRSearch{
+    border-radius: 50px;
+    background-color: rgba(106, 144, 148, 0.233);
+
+}
+#trends{
+    border-radius: 15px;
+    background-color: rgba(73, 99, 102, 0.233);
+}
+#sideRSearch, #who-follow{
+    box-sizing: border-box;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+#sideRSearch i{
+    color: rgba(124, 124, 124, 1);
+    margin-right: 10px;
+}
+
+.searchBox[contenteditable]:empty::before {
+    content: "Search Twitter";
+    color: gray;
+}
+
+#trends{
+    margin-bottom: 15px;
+}
+
+#trends-title{
+    border-bottom: 1px rgba(124, 124, 124, 1) solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    /* margin-bottom: 15px; */
+}
+#trends-title i{
+    color: rgba(29, 161, 242, 1.00);
+    font-size: 25px;
+}
+
+.individual-trend{
+    border-bottom: 1px rgba(124, 124, 124, 1) solid;
+    box-sizing: border-box;
+    padding: 15px;
+}
+.individual-trend:hover, #trends-title:hover,
+.individual-follow:hover, #whoFollow-title:hover{
+
+    background-color: rgba(66, 66, 66, 0.2);
+}
+
+.category-trend{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.trend-topic, .category-trend i{
+    color: rgba(124, 124, 124, 1);
+    font-size: 13px;
+}
+.trend-title{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+.trend-counter, .follow-user-username{
+    color: rgba(124, 124, 124, 1);
+
+}
+
+#trend-showMore, #follow-show-more{
+    box-sizing: border-box;
+    padding: 15px;
+    color: rgba(29, 161, 242, 1.00);
+}
+#trend-showMore:hover, #follow-show-more:hover{
+    background-color: rgba(66, 66, 66, 0.2);
+    cursor: pointer;
+}
+
+#who-follow{
+    background-color: rgba(73, 99, 102, 0.233);
+    border-radius: 15px;
+    padding: 0;
+
+}
+#whoFollow-title,.individual-follow{
+    box-sizing: border-box;
+    padding: 15px;
+    border-bottom: 1px rgba(124, 124, 124, 1) solid;
+}
+.individual-follow{
+    display: flex;
+    align-items: center;
+}
+.follow-user-info{
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 70%;
+}
+.follow-user-icon i{
+    font-size: 50px;
+    margin-right: 10px;
+}
+.follow-btn{
+    border: 2px rgba(29, 161, 242, 1.00) solid;
+    box-sizing: border-box;
+    padding: 10px;
+    color: rgba(29, 161, 242, 1.00);
+    font-weight: bold;
+    border-radius: 50px;
+}
+.follow-btn:hover{
+    cursor: pointer;
+}
+/*? Reusable Classes */
+.font20bold {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}

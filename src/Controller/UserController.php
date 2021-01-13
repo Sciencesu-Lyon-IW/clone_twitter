@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
 
+<<<<<<< HEAD
     /**
      * @Route("/dashboard", name="dashboard")
      * @return Response
@@ -27,6 +28,9 @@ class UserController extends AbstractController
             'user' => $this->getUser(),
         ]);
     }
+=======
+
+>>>>>>> master
 
     /**
      * @Route("/{username}", name="user_profile")
@@ -52,11 +56,24 @@ class UserController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(User::class);
         $product = $repository->find($user->getId());
         $user = new User();
+        /*$user = new User();*/
         $this->getDoctrine()->getManager()->flush();
 
 
-        return $this->render('user/.html.twig', [
+        return $this->render('home/index.html.twig', [
             'user' => $user
+        ]);
+    }
+
+    /**
+     * @Route("/{username}", name="user_profile")
+     * @param Request $request
+     * @return Response
+     */
+    public function index(Request $request, $username): Response
+    {
+        return $this->render('user/index.html.twig', [
+            'controller_name' => 'UserController',
         ]);
     }
 
