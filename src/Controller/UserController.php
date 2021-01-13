@@ -57,7 +57,7 @@ class UserController extends AbstractController
         $this->getDoctrine()->getManager()->flush();
 
 
-        return $this->render('user/index.html.twig', [
+        return $this->render('user/.html.twig', [
             'user' => $user
         ]);
     }
