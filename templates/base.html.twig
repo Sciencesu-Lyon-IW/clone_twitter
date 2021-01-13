@@ -1,32 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    </head>
-    <body>
-    <header>
-        <ul>
-            <li><a href="{{ path('home') }}">Home</a></li>
-            <li><a href="{{ path('home') }}">Explore</a></li>
-            <li><a href="{{ path('home') }}">Notifications</a></li>
-            <li><a href="{{ path('home') }}">Messages</a></li>
-            <li><a href="{{ path('home') }}">Bookmarks</a></li>
-            <li><a href="{{ path('home') }}">Lists</a></li>
-            <li><a href="{{ path('user_profile', {'username': app.user.username}) }}">Profile</a></li>
-            <li><a href="{{ path('home') }}">More</a></li>
-        </ul>
-        <button>Tweet</button>
-        <div>
-            <div>{{ app.user.username }}</div>
+    <title>{% block title %}Clone Twitter: Evadez-vous!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('css/clone.css') }}" />
+</head>
+
+<body>
+<main>
+    <div id="main">
+        <div class="side sticky" id="sideL">
+            <nav>
+                <a href="#">
+                    <div class='insideL' id='twitterDiv'>
+                        <div class='sideLIcon'><i class="fab fa-twitter"></i></div>
+                    </div>
+                </a>
+                <a href="{{ path('home') }}">
+                    <div class='insideL'>
+                        <div class='sideLIcon'><i class="fas fa-home"></i></div>
+                        <div class='sideLText font20bold'>Home</div>
+                    </div>
+                </a>
+                <a href="{{ path('home') }}">
+                    <div class='insideL'>
+                        <div class='sideLIcon'><i class="fas fa-hashtag"></i></div>
+                        <div class='sideLText font20bold'>Explore</div>
+                    </div>
+                </a>
+                <a href="{{ path('home') }}">
+                    <div class='insideL'>
+                        <div class='sideLIcon'><i class="far fa-bell"></i></div>
+                        <div class='sideLText font20bold'>Notifications</div>
+                    </div>
+                </a>
+                <a href="{{ path('home') }}">
+                    <div class='insideL'>
+                        <div class='sideLIcon'><i class="far fa-envelope"></i></div>
+                        <div class='sideLText font20bold'>Messages</div>
+                    </div>
+                </a>
+                <a href="{{ path('home') }}">
+                    <div class='insideL'>
+                        <div class='sideLIcon'><i class="far fa-bookmark"></i></div>
+                        <div class='sideLText font20bold'>Booksmark</div>
+                    </div>
+                </a>
+                <a href="{{ path('home') }}">
+                    <div class='insideL'>
+                        <div class='sideLIcon'><i class="fa fa-bars" aria-hidden="true"></i>
+                        </div>
+                        <div class='sideLText font20bold'>Lists</div>
+                    </div>
+                </a>
+                <a href="{{ path('user_profile', {'username': app.user.username}) }}">
+                    <div class='insideL'>
+                        <div class='sideLIcon'><i class="far fa-user"></i></div>
+                        <div class='sideLText font20bold'>Profile</div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class='insideL'>
+                        <div class='sideLIcon'><i class="fas fa-ellipsis-v"></i></div>
+                        <div class='sideLText font20bold'>More</div>
+                    </div>
+                </a>
+
+                <div class='insideL' id='tweet'>
+                    <div class='sideLText font20bold'>Tweet</div>
+                </div>
+            </nav>
+            <div id='perfilSideL'>
+                <div id='icon'><i class="far fa-user-circle"></i></div>
+                <div id='nameUsername'>
+                    <div id='name' class='font20bold'>Giamblers</div>
+                    <div id='username'>@giamblers</div>
+                </div>
+                <i class="fas fa-angle-right"></i>
+            </div>
+
         </div>
-    </header>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-        <script src="{{ asset('js/script.js') }}"></script>
 
-    </body>
+
+
+
+    {% block body %}
+
+    {% endblock %}
+        <div class="side sticky" id="sideR">
+            <div id='sideRSearch'>
+                <i class="fas fa-search"></i>
+                <span class="searchBox" role="textbox" contenteditable></span>
+            </div>
+            <div id='trends'>
+                <div id="trends-title">
+                    <span id='trendsForYou' class='font20bold'>Trends for you</span>
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class='individual-trend'>
+                    <div class="category-trend">
+                        <div class='trend-topic'>Politics Trending</div>
+                        <i class="fas fa-angle-right trends-seemore"></i>
+                    </div>
+                    <div class='trend-title'>This is a trend</div>
+                    <div class='trend-counter'>200k Tweets</div>
+                </div>
+                <div class='individual-trend'>
+                    <div class="category-trend">
+                        <div class='trend-topic'>Politics Trending</div>
+                        <i class="fas fa-angle-right trends-seemore"></i>
+                    </div>
+                    <div class='trend-title'>This is a trend</div>
+                    <div class='trend-counter'>200k Tweets</div>
+                </div>
+                <div class='individual-trend'>
+                    <div class="category-trend">
+                        <div class='trend-topic'>Politics Trending</div>
+                        <i class="fas fa-angle-right trends-seemore"></i>
+                    </div>
+                    <div class='trend-title'>This is a trend</div>
+                    <div class='trend-counter'>200k Tweets</div>
+                </div>
+                <div id='trend-showMore'>Show more</div>
+            </div>
+            <div id='who-follow'>
+                <div id="whoFollow-title">
+                    <span id='whoToFollow' class='font20bold'>Who to follow</span>
+                </div>
+                <div class='individual-follow'>
+                    <div class='follow-user-icon'><i class="far fa-user-circle"></i></div>
+                    <div class='follow-user-info'>
+                        <span class='follow-user-name font20bold'>Giamblers</span>
+                        <span class='follow-user-username'>@Giamblers</span>
+                    </div>
+                    <div class='follow-btn'>Follow</div>
+                </div>
+                <div class='individual-follow'>
+                    <div class='follow-user-icon'><i class="far fa-user-circle"></i></div>
+                    <div class='follow-user-info'>
+                        <span class='follow-user-name font20bold'>Giamblers</span>
+                        <span class='follow-user-username'>@Giamblers</span>
+                    </div>
+                    <div class='follow-btn'>Follow</div>
+                </div>
+                <div class='individual-follow'>
+                    <div class='follow-user-icon'><i class="far fa-user-circle"></i></div>
+                    <div class='follow-user-info'>
+                        <span class='follow-user-name font20bold'>Giamblers</span>
+                        <span class='follow-user-username'>@Giamblers</span>
+                    </div>
+                    <div class='follow-btn'>Follow</div>
+                </div>
+                <div id='follow-show-more'>Show more</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% block javascripts %}{% endblock %}
+<script src="{{ asset('js/script.js') }}"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+</body>
 </html>
