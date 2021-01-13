@@ -3,10 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
-<<<<<<< HEAD
-=======
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
->>>>>>> master
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,22 +15,25 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class UserController extends AbstractController
 {
-
-
     /**
-<<<<<<< HEAD
      * @Route("/dashboard", name="dashboard")
      * @return Response
      */
     public function dashboard(): Response
-=======
-     * @Route("/{username}", name="user_profile")
+    {
+        return $this->render('user/dashboard.html.twig', [
+            'controller_name' => 'UserController',
+            'user' => $this->getUser(),
+        ]);
+    }
+
+
+    /* @Route("/{username}", name="user_profile")
      * @param User $user
      * @param Request $request
      * @return Response
      */
     public function index(User $user, Request $request, $username): Response
->>>>>>> master
     {
 
         return $this->render('user/dashboard.html.twig', [
