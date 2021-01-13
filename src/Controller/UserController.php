@@ -16,21 +16,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
 
-    /* @Route("/{username}", name="user_profile")
+    /**
+     * @Route("/{username}", name="user_profile")
      * @param User $user
      * @param Request $request
-     * @param $username
      * @return Response
      */
     public function index(User $user, Request $request, $username): Response
     {
-        return $this->render('user/dashboard.html.twig', [
+        return $this->render('user/index.html.twig', [
             'controller_name' => 'UserController',
-            'user' => $this->getUser(),
         ]);
     }
-
-
 
     /**
      * @Route("/dashboard", name="dashboard")
