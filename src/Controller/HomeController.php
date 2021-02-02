@@ -83,7 +83,7 @@ class HomeController extends AbstractController
 
         /*new Response('Tweet publié '.$posts->getId());*/
         return $this->redirectToRoute('home');
-        // do anything else you need here, like send an email
+        // do anything else you need here, like send a email
         /*  return $this->render('home/index.html.twig', [
               'user' => $this->getUser(),
 
