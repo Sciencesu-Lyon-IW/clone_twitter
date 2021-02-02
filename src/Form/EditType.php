@@ -12,10 +12,10 @@ class EditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
             ->add('username')
-            ->add('firstname')
-            ->add('name')
+            ->add('bio')
+            ->add('localisation')
+            ->add('web')
             ->add('birthdate')
         ;
     }
