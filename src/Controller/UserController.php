@@ -17,20 +17,17 @@ class UserController extends AbstractController
 {
 
 
-
     /**
      * @Route("/dashboard", name="dashboard")
      * @return Response
      */
     public function dashboard(): Response
     {
-        return $this->render('user/dashboard.html.twig', [
+        return $this->render('user/index.html.twig', [
             'controller_name' => 'UserController',
             'user' => $this->getUser(),
         ]);
     }
-
-
 
     /*
     * @Route("/profile/{id}", name="user_profile", methods={"GET","POST"})
