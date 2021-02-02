@@ -23,6 +23,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
  */
 class RegistrationController extends AbstractController
 {
+
     /**
      * @Route("/", name="app_register")
      * @param Request $request
@@ -36,6 +37,10 @@ class RegistrationController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $authenticator): Response
     {
+        if($this->isGranted("IS_AUTHENTICATED_FULLY"))
+        {
+            $this->redirectToRoute("home");
+        }
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);

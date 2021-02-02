@@ -75,8 +75,8 @@
             <div id='perfilSideL'>
                 <div id='icon'><i class="far fa-user-circle"></i></div>
                 <div id='nameUsername'>
-                    <div id='name' class='font20bold'>Giamblers</div>
-                    <div id='username'>@giamblers</div>
+                    <div id='name' class='font20bold'>{{ app.user.name }}</div>
+                    <div id='username'>@{{ app.user.username }}</div>
                 </div>
                 <i class="fas fa-angle-right"></i>
             </div>
@@ -148,8 +148,8 @@
                 <div class='individual-follow'>
                     <div class='follow-user-icon'><i class="far fa-user-circle"></i></div>
                     <div class='follow-user-info'>
-                        <span class='follow-user-name font20bold'>Giamblers</span>
-                        <span class='follow-user-username'>@Giamblers</span>
+                        <span class='follow-user-name font20bold'>{{ app.user.name }}</span>
+                        <span class='follow-user-username'>@{{ app.user.username }}</span>
                     </div>
                     <div class='follow-btn'>Follow</div>
                 </div>
@@ -159,6 +159,10 @@
     </div>
 {% block javascripts %}{% endblock %}
 <script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 </body>
 </html>
+
+
+
