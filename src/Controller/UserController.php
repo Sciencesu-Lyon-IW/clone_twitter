@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\EditType;
+use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -50,6 +52,7 @@ class UserController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/{username}", name="user_profile")
      * @param Request $request
@@ -57,8 +60,20 @@ class UserController extends AbstractController
      */
     public function index(Request $request, $username): Response
     {
+
+        $form = $this->createForm(EditType::class);
+        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+            $em->persist($user);
+            $em->flush();
+            return $this->redirectToRoute('user_profile');
+        }
         return $this->render('user/index.html.twig', [
+            'userForm' => $form->createView(),
             'controller_name' => 'UserController',
+            'user' => $this->getUser(),
         ]);
     }
 
