@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Home / Twitter{% endblock %}
 
 {% block body %}
     <div id="content">
@@ -8,207 +8,51 @@
         <div id='whatsHappening'>
             <div id='whatsHapIcon'><i class="far fa-user-circle"></i></div>
             <div id='tweetEditor'>
-                <span class="textarea" role="textbox" contenteditable></span>
-                <div id='tweetIcons'>
-                    <div id='tweetIconsLeft'>
-                        <i class="far fa-image hoverDarkBackground"></i>
-                        <i class="fab fa-git-square hoverDarkBackground"></i>
-                        <i class="far fa-chart-bar hoverDarkBackground"></i>
-                        <i class="far fa-smile hoverDarkBackground"></i>
+                <form action="{{ path('create_tweet') }}" method="post">
+                    <span class="textarea" role="textbox" contenteditable>
+                        <label>
+                            <textarea class="textarea" id="textarea_whats_happening" name="whats_happening" placeholder="What's happening"></textarea>
+                        </label>
+                    </span>
+                    <div id='tweetIcons'>
+                        <div id='tweetIconsLeft'>
+                            <i class="far fa-image hoverDarkBackground"></i>
+                            <i class="fab fa-git-square hoverDarkBackground"></i>
+                            <i class="far fa-chart-bar hoverDarkBackground"></i>
+                            <i class="far fa-smile hoverDarkBackground"></i>
+                        </div>
+                        <div id='tweetIconsRight'>
+                            <i class="fas fa-plus hoverDarkBackground"></i>
+                            <button type="submit" id='publishTweet' class='font20bold'>Tweet</button>
+                        </div>
                     </div>
-                    <div id='tweetIconsRight'>
-                        <i class="fas fa-plus hoverDarkBackground"></i>
-                        <div id='publishTweet' class='font20bold'>Tweet</div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
+        {% for post in posts %}
         <div class='individualTweet'>
             <div class='tweetUserIcon'><i class="far fa-user-circle"></i></div>
             <div class='individualContent'>
                 <div class='names'>
-                    <div class='individualName'>Giamblers</div>
-                    <div class="individualUsername">@Giamblers</div>
+                    <div class='individualName'> {{ post.userId.values[0].name }}</div>
+                    <div class="individualUsername">@ {{ post.userId.values | first }}</div>
                     <div class='dot'></div>
-                    <div class="time">15s</div>
+                    <div class="time"></div>
                 </div>
-                <div class="individualText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                    vestibulum feugiat iaculis. Nunc maximus ultrices tristique. In nec tristique velit. Curabitur
-                    aliquet tempus porta. Suspendisse commodo rhoncus massa et aliquam. Donec molestie nisi sit amet
-                    mauris rutrum porttitor.
+                <div class="individualText">
+                    {{ post.body }}
                 </div>
                 <div class='individualIcons'>
                     <div class='individualInfo iconComment'><i class="far fa-comment"></i><span
-                                class='individualNumber' id='comments'>100</span></div>
+                                class='individualNumber' id='comments'></span></div>
                     <div class='individualInfo iconRetweet'><i class="fas fa-retweet"></i><span
-                                class='individualNumber' id='retweets'>100</span></div>
+                                class='individualNumber' id='retweets'></span></div>
                     <div class='individualInfo iconLike'><i class="far fa-heart"></i></i><span
-                                class='individualNumber' id='likes'>100</span></div>
+                                class='individualNumber' id='likes'></span></div>
                     <div class='individualInfo iconShare'><i class="far fa-share-square"></i></div>
                 </div>
             </div>
         </div>
-        <div class='individualTweet'>
-            <div class='tweetUserIcon'><i class="far fa-user-circle"></i></div>
-            <div class='individualContent'>
-                <div class='names'>
-                    <div class='individualName'>Giamblers</div>
-                    <div class="individualUsername">@Giamblers</div>
-                    <div class='dot'></div>
-                    <div class="time">15s</div>
-                </div>
-                <div class="individualText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                    vestibulum feugiat iaculis.
-                </div>
-                <div class='individualIcons'>
-                    <div class='individualInfo iconComment'><i class="far fa-comment"></i><span
-                                class='individualNumber' id='comments'>100</span></div>
-                    <div class='individualInfo iconRetweet'><i class="fas fa-retweet"></i><span
-                                class='individualNumber' id='retweets'>100</span></div>
-                    <div class='individualInfo iconLike'><i class="far fa-heart"></i></i><span
-                                class='individualNumber' id='likes'>100</span></div>
-                    <div class='individualInfo iconShare'><i class="far fa-share-square"></i></div>
-                </div>
-            </div>
-        </div>
-        <div class='individualTweet'>
-            <div class='tweetUserIcon'><i class="far fa-user-circle"></i></div>
-            <div class='individualContent'>
-                <div class='names'>
-                    <div class='individualName'>Giamblers</div>
-                    <div class="individualUsername">@Giamblers</div>
-                    <div class='dot'></div>
-                    <div class="time">15s</div>
-                </div>
-                <div class="individualText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                    vestibulum feugiat iaculis. Nunc maximus ultrices tristique. In nec tristique velit. Curabitur
-                    aliquet tempus porta. Suspendisse commodo rhoncus massa et aliquam. Donec molestie nisi sit amet
-                    mauris rutrum porttitor. Integer ac tortor sit amet ligula consequat blandit in sed nisi.
-                    Vestibulum non finibus nisi. Sed egestas, felis
-                </div>
-                <div class='individualIcons'>
-                    <div class='individualInfo iconComment'><i class="far fa-comment"></i><span
-                                class='individualNumber' id='comments'>100</span></div>
-                    <div class='individualInfo iconRetweet'><i class="fas fa-retweet"></i><span
-                                class='individualNumber' id='retweets'>100</span></div>
-                    <div class='individualInfo iconLike'><i class="far fa-heart"></i></i><span
-                                class='individualNumber' id='likes'>100</span></div>
-                    <div class='individualInfo iconShare'><i class="far fa-share-square"></i></div>
-                </div>
-            </div>
-        </div>
-        <div class='individualTweet'>
-            <div class='tweetUserIcon'><i class="far fa-user-circle"></i></div>
-            <div class='individualContent'>
-                <div class='names'>
-                    <div class='individualName'>Giamblers</div>
-                    <div class="individualUsername">@Giamblers</div>
-                    <div class='dot'></div>
-                    <div class="time">15s</div>
-                </div>
-                <div class="individualText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                    vestibulum feugiat iaculis. Nunc maximus ultrices tristique. In nec tristique velit. Curabitur
-                    aliquet tempus porta. Suspendisse commodo rhoncus massa et aliquam. Donec molestie nisi sit amet
-                    mauris rutrum porttitor. Integer ac tortor sit amet ligula consequat blandit in sed nisi.
-                    Vestibulum non finibus nisi. Sed egestas, felis sit amet bibendum varius, magna urna mollis
-                    quam, vitae interdum leo risus id justo. Cras sed eros pretium, pretium nisi sit amet, commodo
-                    nisl. Duis commodo egestas congue. Maecenas quis purus ut sapien tempus mollis sed eu lectus.
-                </div>
-                <div class='individualIcons'>
-                    <div class='individualInfo iconComment'><i class="far fa-comment"></i><span
-                                class='individualNumber' id='comments'>100</span></div>
-                    <div class='individualInfo iconRetweet'><i class="fas fa-retweet"></i><span
-                                class='individualNumber' id='retweets'>100</span></div>
-                    <div class='individualInfo iconLike'><i class="far fa-heart"></i></i><span
-                                class='individualNumber' id='likes'>100</span></div>
-                    <div class='individualInfo iconShare'><i class="far fa-share-square"></i></div>
-                </div>
-            </div>
-        </div>
-        <div class='individualTweet'>
-            <div class='tweetUserIcon'><i class="far fa-user-circle"></i></div>
-            <div class='individualContent'>
-                <div class='names'>
-                    <div class='individualName'>Giamblers</div>
-                    <div class="individualUsername">@Giamblers</div>
-                    <div class='dot'></div>
-                    <div class="time">15s</div>
-                </div>
-                <div class="individualText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                    vestibulum feugiat iaculis. Nunc maximus ultrices tristique. In nec tristique velit. Curabitur
-                    aliquet tempus porta. Suspendisse commodo rhoncus massa et aliquam. Donec molestie nisi sit amet
-                    mauris rutrum porttitor. Integer ac tortor sit amet ligula consequat blandit in sed nisi.
-                    Vestibulum non finibus nisi. Sed egestas, felis sit amet bibendum varius, magna urna mollis
-                    quam, vitae interdum leo risus id justo. Cras sed eros pretium, pretium nisi sit amet, commodo
-                    nisl. Duis commodo egestas congue. Maecenas quis purus ut sapien tempus mollis sed eu lectus.
-                </div>
-                <div class='individualIcons'>
-                    <div class='individualInfo iconComment'><i class="far fa-comment"></i><span
-                                class='individualNumber' id='comments'>100</span></div>
-                    <div class='individualInfo iconRetweet'><i class="fas fa-retweet"></i><span
-                                class='individualNumber' id='retweets'>100</span></div>
-                    <div class='individualInfo iconLike'><i class="far fa-heart"></i></i><span
-                                class='individualNumber' id='likes'>100</span></div>
-                    <div class='individualInfo iconShare'><i class="far fa-share-square"></i></div>
-                </div>
-            </div>
-        </div>
-        <div class='individualTweet'>
-            <div class='tweetUserIcon'><i class="far fa-user-circle"></i></div>
-            <div class='individualContent'>
-                <div class='names'>
-                    <div class='individualName'>Giamblers</div>
-                    <div class="individualUsername">@Giamblers</div>
-                    <div class='dot'></div>
-                    <div class="time">15s</div>
-                </div>
-                <div class="individualText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                    vestibulum feugiat iaculis. Nunc maximus ultrices tristique. In nec tristique velit. Curabitur
-                    aliquet tempus porta. Suspendisse commodo rhoncus massa et aliquam. Donec molestie nisi sit amet
-                    mauris rutrum porttitor. Integer ac tortor sit amet ligula consequat blandit in sed nisi.
-                    Vestibulum non finibus nisi. Sed egestas, felis sit amet bibendum varius, magna urna mollis
-                    quam, vitae interdum leo risus id justo. Cras sed eros pretium, pretium nisi sit amet, commodo
-                    nisl. Duis commodo egestas congue. Maecenas quis purus ut sapien tempus mollis sed eu lectus.
-                </div>
-                <div class='individualIcons'>
-                    <div class='individualInfo iconComment'><i class="far fa-comment"></i><span
-                                class='individualNumber' id='comments'>100</span></div>
-                    <div class='individualInfo iconRetweet'><i class="fas fa-retweet"></i><span
-                                class='individualNumber' id='retweets'>100</span></div>
-                    <div class='individualInfo iconLike'><i class="far fa-heart"></i></i><span
-                                class='individualNumber' id='likes'>100</span></div>
-                    <div class='individualInfo iconShare'><i class="far fa-share-square"></i></div>
-                </div>
-            </div>
-        </div>
-        <div class='individualTweet'>
-            <div class='tweetUserIcon'><i class="far fa-user-circle"></i></div>
-            <div class='individualContent'>
-                <div class='names'>
-                    <div class='individualName'>Giamblers</div>
-                    <div class="individualUsername">@Giamblers</div>
-                    <div class='dot'></div>
-                    <div class="time">15s</div>
-                </div>
-                <div class="individualText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                    vestibulum feugiat iaculis. Nunc maximus ultrices tristique. In nec tristique velit. Curabitur
-                    aliquet tempus porta. Suspendisse commodo rhoncus massa et aliquam. Donec molestie nisi sit amet
-                    mauris rutrum porttitor. Integer ac tortor sit amet ligula consequat blandit in sed nisi.
-                    Vestibulum non finibus nisi. Sed egestas, felis sit amet bibendum varius, magna urna mollis
-                    quam, vitae interdum leo risus id justo. Cras sed eros pretium, pretium nisi sit amet, commodo
-                    nisl. Duis commodo egestas congue. Maecenas quis purus ut sapien tempus mollis sed eu lectus.
-                </div>
-                <div class='individualIcons'>
-                    <div class='individualInfo iconComment'><i class="far fa-comment"></i><span
-                                class='individualNumber' id='comments'>100</span></div>
-                    <div class='individualInfo iconRetweet'><i class="fas fa-retweet"></i><span
-                                class='individualNumber' id='retweets'>100</span></div>
-                    <div class='individualInfo iconLike'><i class="far fa-heart"></i></i><span
-                                class='individualNumber' id='likes'>100</span></div>
-                    <div class='individualInfo iconShare'><i class="far fa-share-square"></i></div>
-                </div>
-            </div>
-        </div>
-
+        {% endfor %}
     </div>
 {% endblock %}

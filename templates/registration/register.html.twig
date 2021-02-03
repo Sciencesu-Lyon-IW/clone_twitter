@@ -4,94 +4,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     {% block title %}{% endblock %}
+=======
+>>>>>>> master
 
     {% block stylesheets %}{% endblock %}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-    <title></title>
+    <title>Register
+    </title>
 
 </head>
 <body>
 
-{% block body %}
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-        <div class="container" id="container">
-            <div class="form-container sign-up-container">
-                {{ form_start(registrationForm) }}
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            {{ form_start(registrationForm) }}
 
-                    <h1>Inscrit toi</h1>
-                    {#            <span>or use your email for registration</span>#}
-                {{ form_widget(registrationForm.email) }}
-                {{ form_widget(registrationForm.username) }}
-                    {{ form_widget(registrationForm.name) }}
-                    {{ form_widget(registrationForm.firstname) }}
-                    {{ form_widget(registrationForm.birthdate) }}
-                    {{ form_widget(registrationForm.plainPassword, {
-                        label: 'Password'
-                    }) }}
-                    {{ form_widget(registrationForm.agreeTerms) }}
-                  {#  <input type="text" placeholder="Name" />
+            <h1>Inscrit toi</h1>
+            {#            <span>or use your email for registration</span>#}
+            {{ form_widget(registrationForm.email) }}
+            {{ form_widget(registrationForm.username) }}
+            {{ form_widget(registrationForm.name) }}
+            {{ form_widget(registrationForm.firstname) }}
+            {{ form_widget(registrationForm.birthdate) }}
+            {{ form_widget(registrationForm.plainPassword, {
+                label: 'Password'
+            }) }}
+            {{ form_widget(registrationForm.agreeTerms) }}
+            {#  <input type="text" placeholder="Name" />
                     <input type="email" placeholder="Email" />
                     <input type="password" placeholder="Password" /> #}
-                    <button>Créer mon compte</button>
-                {{ form_end(registrationForm) }}
+            <button>Créer mon compte</button>
+            {{ form_end(registrationForm) }}
 
-            </div>
-            <div class="form-container sign-in-container">
-                <form method="post" action="{{ path('app_login') }}">
-                    {% if error %}
-                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                    {% endif %}
+        </div>
+        <div class="form-container sign-in-container">
+            <form method="post" action="{{ path('app_login') }}">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
 
-                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-                    <label for="inputEmail">Email</label>
-                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-                    <label for="inputPassword">Password</label>
-                    <input type="password" name="password" id="inputPassword" class="form-control" required>
+                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                <label for="inputEmail">Email</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+                <label for="inputPassword">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" required>
 
-                    <input type="hidden" name="_csrf_token"
-                           value="{{ csrf_token('authenticate') }}"
-                    >
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"
+                >
 
-                    {#
-                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                    See https://symfony.com/doc/current/security/remember_me.html
+                {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
 
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" name="_remember_me"> Remember me
-                        </label>
-                    </div>
-                    #}
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+                #}
 
-                    <button class="btn btn-lg btn-primary" type="submit">
-                        Sign in
-                    </button>
-                </form>
-            </div>
-            <div class="overlay-container">
-                <div class="overlay">
-                    <div class="overlay-panel overlay-left">
-                        <h1>De retour!</h1>
-                        <p>Viens te connecter si tu as déjà un compte</p>
-                        <button class="ghost" id="signIn">Connexion</button>
-                    </div>
-                    <div class="overlay-panel overlay-right">
-                        <h1>Hello, mon ami!</h1>
-                        <p>Viens créer ton compte pour découvrir Clone Twitter</p>
-                        <button class="ghost" id="signUp">Créer mon compte</button>
-                    </div>
+                <button class="btn btn-lg btn-primary" type="submit">
+                    Sign in
+                </button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>De retour!</h1>
+                    <p>Viens te connecter si tu as déjà un compte</p>
+                    <button class="ghost" id="signIn">Connexion</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, mon ami!</h1>
+                    <p>Viens créer ton compte pour découvrir Clone Twitter</p>
+                    <button class="ghost" id="signUp">Créer mon compte</button>
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
 
 {% endblock %}
 
 {% block javascripts %}{% endblock %}
 <script src="{{ asset('js/script.js') }}"></script>
 
+=======
+    </div>
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+>>>>>>> master
 </body>
 </html>
