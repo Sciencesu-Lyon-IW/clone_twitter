@@ -54,7 +54,6 @@ class HomeController extends AbstractController
             return new JsonResponse($request->request->get('whats_happening'));
         }
         return new JsonResponse($request->request->get('whats_happening'));
-
     }
 
     /**

@@ -2,74 +2,115 @@
 
 {% block title %}Hello UserController!{% endblock %}
 
+
+
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    /* Modal Content */
+    .modal-content {
+        background-color: #5d5d5d!important;
+    }
 </style>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+<div id="content">
+    <div id="homeDiv" class='sticky'><span id="contentHome" class='font20bold'>{{ user.name }} {{ user.firstname }}</span></div>
+    <div id='whatsHappening'>
+        <div id='whatsHapIcon'><i class="far fa-user-circle"></i></div><br><br>
+        <div id='tweetEditor'>
+            <span class="textarea" role="textbox">
+                    <p>{{ user.name }} {{ user.firstname }}</p>
+                </span>
+            <div id='tweetIcons'>
+                <div id='tweetIconsLeft'>
+                    <p>Naissance le {{ user.birthdate|date("d/m/Y")  }}</p>
+                    <p>nb abonnements  nb abonnés</p>
                 </div>
-                <div class="modal-body">
-                    {{ form_start(userForm) }}
-                    <button type="submit">Enregistrer</button>
-                    {{ form_end(userForm) }}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                <div id='tweetIconsRight'>
+                    <button type="button" id='publishTweet' class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Éditer le profil</button>
                 </div>
             </div>
         </div>
     </div>
+    {% for post in posts %}
+        <div class='individualTweet'>
+            <div class='tweetUserIcon'><i class="far fa-user-circle"></i></div>
+            <div class='individualContent'>
+                <div class='names'>
+                    <div class='individualName'> {{ post.userId.values[0].name }}</div>
+                    <div class="individualUsername">@ {{ post.userId.values | first }}</div>
+                    <div class='dot'></div>
+                    <div class="time"></div>
+                </div>
+                <div class="individualText">
+                    {{ post.body }}
+                </div>
+                <div class='individualIcons'>
+                    <div class='individualInfo iconComment'><i class="far fa-comment"></i><span
+                                class='individualNumber' id='comments'></span></div>
+                    <div class='individualInfo iconRetweet'><i class="fas fa-retweet"></i><span
+                                class='individualNumber' id='retweets'></span></div>
+                    <div class='individualInfo iconLike'><i class="far fa-heart"></i></i><span
+                                class='individualNumber' id='likes'></span></div>
+                    <div class='individualInfo iconShare'><i class="far fa-share-square"></i></div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 
-    <div class="example-wrapper">
-    {{ user.firstname }} {{ user.name }}
-{#    {{ nb tweet }}#}
-    {{ user.firstname }} {{ user.name }}
-    {{ user.username }}
-    {{ user.birthdate }} {# {{ user.createAt }}#}
-{#    {{ follow }}#}
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Editer le profil
-    </button>
-
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Documents/Campus-U/MIW/Symfony/clone_twitter/src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Documents/Campus-U/MIW/Symfony/clone_twitter/templates/user/index.html.twig'|file_link(0) }}">templates/user/index.html.twig</a></code></li>
-    </ul>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Éditer le profil</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ path('update_profile') }}" method="post">
+                    <div class="modal-body">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Bio" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Location">
+                            </div>
+                            <div class="form-group">
+                                <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="Birthdate">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" id="edit_profile" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
 </div>
 
-    <script>
-        $("#form").on("submit", function(e){
-            $.ajax({
-                url: '{{ path('dashboard') }}',
-                type: "POST",
-                dataType: "json",
-                data: {
-                    "task": form
-            },
-                success: function (return_data) {
-                    console.log(return_data);
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
 
-                }
-            })});
-
-    </script>
-
-
+        <script>
+            $("button#edit_profile[type=submit]").addEventListener('submit',function(e){
+                console.log('test');
+                alert("The paragraph was clicked.");
+                $.ajax({
+                    url: "{{ path('dashboard') }}",
+                    type: "POST",
+                    dataType: "json",
+                    data: {"data": data},
+                    success: function (data) {
+                        console.log(data);
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                })
+            });
+        </script>
 {% endblock %}

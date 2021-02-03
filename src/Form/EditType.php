@@ -14,8 +14,7 @@ class EditType extends AbstractType
         $builder
             ->add('username')
             ->add('bio')
-            ->add('localisation')
-            ->add('web')
+            ->add('location')
             ->add('birthdate')
         ;
     }
