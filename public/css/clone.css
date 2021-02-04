@@ -327,6 +327,7 @@ nav i {
     color: rgba(124, 124, 124, 1);
     margin-right: 10px;
 }
+
 .iconShare i{
     margin: 0;
 }
@@ -342,7 +343,7 @@ nav i {
 .iconComment:hover > i.fa-comment,
 .iconComment:hover > .individualNumber,
 .iconShare:hover >  .fa-share-square{
-    color: rgba(29, 161, 242, 1.00);
+    color: rgba(11, 118, 184, 0.4);
 }
 .iconComment:hover,
 .iconShare:hover {

@@ -18,9 +18,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-/**
- * @IsGranted("IS_ANONYMOUS")
- */
+
 class RegistrationController extends AbstractController
 {
 
