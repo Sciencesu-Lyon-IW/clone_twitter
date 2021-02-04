@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Repository\LikesRepository;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -32,11 +34,11 @@ class Likes
     private $id;
 
     /**
-     * @var \DateTime|null
+     * @var string
      *
-     * @ORM\Column(name="createAt", type="datetime", nullable=true)
+     * @ORM\Column(name="createAt", type="string", nullable=true)
      */
-    private $createat;
+    private string $createat;
 
     /**
      * @var \Posts
@@ -58,17 +60,31 @@ class Likes
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hasLiked;
+
+    public function __construct()
+    {
+        $this->createat = date("Y-m-d H:i:s");
+    }
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCreateat(): ?\DateTimeInterface
+    public function getCreateat(): ?string
     {
         return $this->createat;
     }
 
-    public function setCreateat(?\DateTimeInterface $createat): self
+    public function setCreateat(?string $createat): self
     {
         $this->createat = $createat;
 
@@ -95,6 +111,30 @@ class Likes
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?string
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?string $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getHasLiked(): ?bool
+    {
+        return $this->hasLiked;
+    }
+
+    public function setHasLiked(bool $hasLiked): self
+    {
+        $this->hasLiked = $hasLiked;
 
         return $this;
     }

@@ -226,6 +226,6 @@ class Posts
     }
     public function __toString(): string
     {
-        return $this->getUserId();
+        return $this->getId();
     }
 }

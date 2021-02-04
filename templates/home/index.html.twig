@@ -30,7 +30,7 @@
             </div>
         </div>
         {% for post in posts %}
-        <div class='individualTweet'>
+        <div class='individualTweet '>
             <div class='tweetUserIcon'><i class="far fa-user-circle"></i></div>
             <div class='individualContent'>
                 <div class='names'>
@@ -47,12 +47,13 @@
                                 class='individualNumber' id='comments'></span></div>
                     <div class='individualInfo iconRetweet'><i class="fas fa-retweet"></i><span
                                 class='individualNumber' id='retweets'></span></div>
-                    <div class='individualInfo iconLike'><i class="far fa-heart"></i></i><span
-                                class='individualNumber' id='likes'></span></div>
+                    <div class='individualInfo iconLike' data-is-authenticated="{{ user }}" data-is-post="{{ post }}" ><i class="far fa-heart" ></i></i><span
+                                class='individualNumber' ></span></div>
                     <div class='individualInfo iconShare'><i class="far fa-share-square"></i></div>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
+
 {% endblock %}
