@@ -45,15 +45,18 @@
                 <div class='individualIcons'>
                     <div class='individualInfo iconComment'><i class="far fa-comment"></i><span
                                 class='individualNumber' id='comments'></span></div>
-                    <div class='individualInfo iconRetweet'><i class="fas fa-retweet"></i><span
+                    <div class='individualInfo iconRetweet' data-is-authenticated="{{ user }}" id="{{ post.id }}"><i class="fas fa-retweet"></i><span
                                 class='individualNumber' id='retweets'></span></div>
-                    <div class='individualInfo iconLike' data-is-authenticated="{{ user }}" data-is-post="{{ post }}" ><i class="far fa-heart" ></i></i><span
+                    <div class='individualInfo iconLike' id="{{ post.id }}" data-is-authenticated="{{ user }}" data-is-like="{{ post.id }} " ><i class="far fa-heart" ></i></i><span
                                 class='individualNumber' ></span></div>
                     <div class='individualInfo iconShare'><i class="far fa-share-square"></i></div>
                 </div>
             </div>
         </div>
+            <div class="modal-comment" >{% include 'home/_comment.html.twig' %}</div>
         {% endfor %}
     </div>
+    <script>
 
+    </script>
 {% endblock %}
