@@ -85,51 +85,30 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/update_profile_ajax", name="ajax_update_profile")
-     * @param Request $request
-     * @return JsonResponse
-     */
-    public function ajaxCreateTweet(Request $request): JsonResponse
-    {
-
-        if ($request->request->get('data')) {
-            $this->createTweet($request);
-            return new JsonResponse($request->request->get('data'));
-        }
-        return new JsonResponse($request->request->get('data'));
-    }
-
-    /**
-     * @Route("/update_profile", name="update_profile")
+     * @Route("/update/profile", name="update_profile", methods={"POST"})
      * @param Request $request
      * @return Response
      */
-    public function createTweet(Request $request): Response
+    public function update(Request $request, User $user): Response
     {
-
         if (!$request->request->get('data') || $request->request->get('data') === "")
         {
             return new Response('Erreur lors la mise à jour du profil');
         }
-        $whats_happening = $request->request->get('whats_happening');
-        $posts = new Posts();
-        $posts->setBody($whats_happening);
-        $posts->setCreateat(date("Y-m-d H:i:s"));
-        $posts->addUser($this->getUser());
+        $username = $request->request->get('username');
+        $bio = $request->request->get('bio');
+        $location = $request->request->get('location');
+        $birthday = $request->request->get('birthday');
+        dump($request->request->all());
+        $user->setUsername($username);
+        $user->setBio($bio);
+        $user->setLocation($location);
+        $user->setBirthdate($birthday);
         $entityManager = $this->getDoctrine()->getManager();
 
-        $entityManager->persist($posts);
         $entityManager->flush();
 
-
-
-        /*new Response('Tweet publié '.$posts->getId());*/
-        return $this->redirectToRoute('dashboard');
-        // do anything else you need here, like send a email
-        /*  return $this->render('home/index.html.twig', [
-              'user' => $this->getUser(),
-
-          ]);*/
+        return $this->redirectToRoute('user_profile');
     }
 
 }
