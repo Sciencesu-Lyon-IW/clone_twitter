@@ -16,11 +16,16 @@
 
 <div id="content">
     <div id="homeDiv" class='sticky'><span id="contentHome" class='font20bold'>{{ user.name }} {{ user.firstname }}</span></div>
+{#    {% for total_post in total_posts %}#}
+{#        {{ dump(total_post) }}#}
+{#    {% endfor %}#}
     <div id='whatsHappening'>
         <div id='whatsHapIcon'><i class="far fa-user-circle"></i></div><br><br>
         <div id='tweetEditor'>
-            <span class="textarea" role="textbox">
+            <p class="textarea" role="textbox">
                     <p>{{ user.name }} {{ user.firstname }}</p>
+                    <p>Bio: {{ user.username }}</p>
+                    <p>{{ user.bio }}</p>
                 </span>
             <div id='tweetIcons'>
                 <div id='tweetIconsLeft'>
@@ -70,19 +75,22 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form id="myForm" action="{{ path('update_profile') }}" method="post">
+                    <form id="myForm" action="{{ path('update_profile') }}" method="POST">
                     <div class="modal-body">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="username" placeholder="Username">
+                                <span type="text" class="form-control" name="username" placeholder="" readonly="readonly">Username : {{ user.name }}</span>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" id="bio" placeholder="Bio" rows="3"></textarea>
+                                <span type="email" class="form-control" name="email" readonly="readonly">Email : {{ user.email }}</span>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="location" placeholder="Location">
+                                <textarea class="form-control" name="bio" placeholder="Bio" rows="3"></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="date" class="form-control" id="birthday" placeholder="Birthdate">
+                                <input type="text" class="form-control" name="location" placeholder="Location">
+                            </div>
+                            <div class="form-group">
+                                <input type="date" class="form-control" name="birthday" placeholder="Birthdate">
                             </div>
                     </div>
                     <div class="modal-footer">
