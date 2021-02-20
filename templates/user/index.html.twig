@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}{{ app.user.getName() }} (@{{ app.user.getUsername() }}) / Twitter{% endblock %}
 
 
 
@@ -13,9 +13,8 @@
         background-color: #5d5d5d!important;
     }
 </style>
-
 <div id="content">
-    <div id="homeDiv" class='sticky'><span id="contentHome" class='font20bold'>{{ user.name }} {{ user.firstname }}</span></div>
+    <div id="homeDiv" class='sticky'><span id="contentHome" class='font20bold'>{{  app.user.getName()}}</span></div>
 {#    {% for total_post in total_posts %}#}
 {#        {{ dump(total_post) }}#}
 {#    {% endfor %}#}
@@ -26,7 +25,6 @@
                     <p>{{ user.name }} {{ user.firstname }}</p>
                     <p>Bio: {{ user.username }}</p>
                     <p>{{ user.bio }}</p>
-                </span>
             <div id='tweetIcons'>
                 <div id='tweetIconsLeft'>
                     <p>Naissance le {{ user.birthdate|date("d/m/Y")  }}</p>
@@ -39,6 +37,7 @@
         </div>
     </div>
     {% for post in posts %}
+      {% if post.userId.values[0].id is same as app.user.id %}
         <div class='individualTweet'>
             <div class='tweetUserIcon'><i class="far fa-user-circle"></i></div>
             <div class='individualContent'>
@@ -62,13 +61,15 @@
                 </div>
             </div>
         </div>
+      {% endif %}
+
     {% endfor %}
 
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
+        <div class="" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialoeg">
+                <div class="">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Éditer le profil</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

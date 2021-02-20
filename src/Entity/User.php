@@ -159,7 +159,7 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
         $this->posts = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }

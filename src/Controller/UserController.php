@@ -39,20 +39,21 @@ class UserController extends AbstractController
     * @param User $user
     * @return Response
         */
-    public function profile(Request $request, User $user): Response
+
+/*    public function profile(Request $request, User $user): Response
     {
 
         $repository = $this->getDoctrine()->getRepository(User::class);
         $product = $repository->find($user->getId());
         $user = new User();
-        /*$user = new User();*/
+        /*$user = new User(
         $this->getDoctrine()->getManager()->flush();
 
 
         return $this->render('home/index.html.twig', [
             'user' => $user
         ]);
-    }
+    }*/
 
 
     /**
@@ -84,7 +85,6 @@ class UserController extends AbstractController
 //
 //        $total_posts = $statement->fetchAll();
 //        var_dump($total_posts);
-
         return $this->render('user/index.html.twig', [
             'userForm' => $form->createView(),
             'controller_name' => 'UserController',
