@@ -1,29 +1,4 @@
-{#
-<div class="text-center  m-auto text-justify ">
-    <div class="overflow-hidden">
-        <a class="shopPicture " href="{{ path('oneproduct', {'id' : product.id })}}"  data-featherlight-close-on-click="anywhere">
-            <img class="categorie_picture object-contain" src="{{ vich_uploader_asset(product, product.getArticlePictureFile) }}"
-                 alt="Product_picture"  width="350px">
 
-        </a>
-    </div>
-
-    <div class="">
-        <h1 class="font-black text-base">{{ product.getArticleNom }}</h1>
-        <p class="text-sm"> {{ product.getArticlePrix / 100 | number_format(0, '', ' ')}} €</p>
-
-        #}
-{#     <div class="flex">
-            <p > ★ ★ ★ ★ ★</p>
-            <span class="ml-2 text-sm">2 notes</span>
-        </div>#}{#
-
-        {% if product.promo %}
-            <span class="ml-2 text-sm">Promo</span>
-        {% endif %}
-    </div>
-     {% include 'product/_card.html.twig' with {product: product} only%}
-</div>#}
 <!-- Modal -->
 <div class="modal" aria-hidden="true">
     <div class="modal-dialog">
@@ -42,6 +17,3 @@
         </div>
     </div>
 </div>
-<script>
-
-</script>
