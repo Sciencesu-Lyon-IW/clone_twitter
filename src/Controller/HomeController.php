@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Likes;
 use App\Entity\Posts;
 use App\Entity\User;
 use App\Repository\PostsRepository;

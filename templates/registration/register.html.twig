@@ -1,7 +1,11 @@
+{#{% extends 'base.html.twig' %}#}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    {% block title %}{% endblock %}
 
     {% block stylesheets %}{% endblock %}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
@@ -83,6 +87,12 @@
                 </div>
             </div>
         </div>
+
+{#{% endblock %}#}
+
+{% block javascripts %}{% endblock %}
+<script src="{{ asset('js/script.js') }}"></script>
+
     </div>
     <script src="{{ asset('js/jquery.js') }}"></script>
 
