@@ -43,7 +43,7 @@
                     {{ post.body }}
                 </div>
                 <div class='individualIcons'>
-                    <div class='individualInfo iconComment'><i class="far fa-comment"></i><span
+                    <div class='individualInfo iconComment openmodal'  data-id="{{ post }}"><i class="far fa-comment red"></i><span
                                 class='individualNumber' id='comments'></span></div>
                     <div class='individualInfo iconRetweet' data-is-authenticated="{{ user }}" id="{{ post.id }}"><i class="fas fa-retweet"></i><span
                                 class='individualNumber' id='retweets'></span></div>
@@ -53,10 +53,11 @@
                 </div>
             </div>
         </div>
-            <div class="modal-comment" >{% include 'home/_comment.html.twig' %}</div>
+
+            <div class="modal-comment" >{% include 'home/_modalComment.html.twig' with {post: post} only%}</div>
+            <div class="bcomment" >{% include 'home/_comments.html.twig' with {comments: comments, post: post}%}</div>
+
         {% endfor %}
     </div>
-    <script>
 
-    </script>
 {% endblock %}

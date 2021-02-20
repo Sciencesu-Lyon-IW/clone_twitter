@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Comments;
 use App\Entity\Likes;
 use App\Entity\Posts;
 use App\Entity\Repost;
@@ -29,6 +30,7 @@ class HomeController extends AbstractController
     private EntityManagerInterface $entityManager;
     private Posts $posts ;
     private Likes $likes;
+    private string $error = '';
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
@@ -41,13 +43,27 @@ class HomeController extends AbstractController
     public function index(): Response
     {
         $post = $this->entityManager->getRepository(Posts::class)->findAll();
+        $comment = [];
         if (!$post) {
-            $error = 'Pas de post ici';
+            $this->error = 'Pas de post ici';
+        }
+
+        for ($i = 0, $iMax = count($post); $i < $iMax; $i++)
+        {
+            $comment += [$post[$i]];
+
+            $s = $this->entityManager->getRepository(Comments::class)->findBy(
+                [
+                    'posts' => $post,
+                ]
+            );
         }
 
         return $this->render('home/index.html.twig', [
             'user' => $this->getUser(),
             'posts'=> $this->entityManager->getRepository(Posts::class)->findAll(),
+            'error' => $this->error,
+            'comments' => $s,
 
         ]);
     }
@@ -194,6 +210,7 @@ class HomeController extends AbstractController
         $post_search = new Posts();
         $retweet = new Repost();
         // on cherche si un post liké existe
+
         $post_find = $this->entityManager->getRepository(Posts::class)->find($post);
 
         if (!$post_find) {
@@ -251,6 +268,45 @@ class HomeController extends AbstractController
         $this->entityManager->flush();
 
         return new JsonResponse($request->request->all());
+
+
+    }
+
+    /**
+     * @Route("/comment/tweet", name="ajax_comment_tweet")
+     * @param Request $request
+     * @return JsonResponse
+     * @throws BadRequestException
+     */
+    public function ajaxComment(Request $request): JsonResponse
+    {
+       /*   if (!$request->isXmlHttpRequest() ) {
+               return new JsonResponse('Aucune donnée reçu');
+           }*/
+        // initialise les donnée a envoyé
+        $post = $request->request->get('post');
+        $body = $request->request->get('comment');
+        if ($post !== '' || !$post) {
+
+            if ($body !== '' || !$body) {
+                $setPost = $this->entityManager->getRepository(Posts::class)->find($post);
+                $comment = new Comments();
+
+                $comment->setUser($this->getUser());
+                $comment->setPosts($setPost);
+                $comment->setBody($body);
+                $comment->setCreatedAt(date("Y-m-d H:i:s"));
+                $this->entityManager->persist($comment);
+
+                $this->entityManager->flush();
+
+                return new JsonResponse($request->request->all());
+            }
+            return new JsonResponse('Contenu vide');
+
+        }
+
+        return new JsonResponse('Aucune post idendifié');
 
 
     }

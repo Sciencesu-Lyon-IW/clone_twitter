@@ -517,7 +517,7 @@ nav i {
 /*
         MODAL-COMMENT
 */
-btn {
+.btn {
     background: #e60023;
     border-radius: 3px;
     color: #fff;
@@ -539,7 +539,7 @@ btn {
     min-width: 100px;
 }
 .btn-close {
-    color: #e60023;
+    color: rgb(49, 169, 243);
     font-size: 30px;
     text-decoration: none;
     padding:10px;
@@ -553,7 +553,7 @@ btn {
 .modal:before {
     content: "";
     display: none;
-    background: rgb(230,0,35,0.3);
+    background: rgba(21, 32, 43, 0.3);
     position: fixed;
     top: 0;
     left: 0;
@@ -569,16 +569,16 @@ btn {
     top: 20%;
 }
 .modal-dialog {
-    background: #fefefe;
+    background-color: rgb(0, 0, 0);
     border: #333333 solid 0px;
-    border-radius: 5px;
+    border-radius: 16px;
     margin-left: -200px;
     text-align:center;
     position: fixed;
     left: 50%;
     top: -100%;
     z-index: 11;
-    width: 450px;
+    min-width: 600px;
     box-shadow:0 5px 10px rgba(0,0,0,0.3);
     transform: translate(0, -500%);
     transition: transform 0.3s ease-out;
@@ -586,23 +586,30 @@ btn {
 .modal-body {
     padding: 20px;
 }
+
 .modal-body input{
     width:200px;
     padding:8px;
     border:1px solid #ddd;
-    color:#888;
+    color:black;
     outline:0;
     font-size:14px;
     font-weight:bold;
     margin-top: 10px;
 }
+
 .modal-header,
 .modal-footer {
     padding: 10px 20px;
 }
+
 .modal-header {
     border-bottom: #eeeeee solid 1px;
+    height: 53px;
 }
+
 .modal-header h2 {
     font-size: 20px;
 }
+
+.fa-comment svg path{fill: red !important;}

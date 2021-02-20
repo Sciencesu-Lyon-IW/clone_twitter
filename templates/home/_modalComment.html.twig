@@ -25,19 +25,23 @@
      {% include 'product/_card.html.twig' with {product: product} only%}
 </div>#}
 <!-- Modal -->
-<div class="modal modal-comment" aria-hidden="true">
+<div class="modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h2>Login Your Account</h2>
             <a href="#" class="btn-close closemodal" aria-hidden="true">&times;</a>
         </div>
         <div class="modal-body">
-            <input type="text" name="user" placeholder="Username" size="20" /><br>
-            <input type="text" name="pass" placeholder="Password" size="20" /></div>
+
+            <label for="textarea_tweet_reply"></label>
+            <input id="textarea_tweet_reply"  type="text" name="tweet_reply" placeholder="Tweet your reply" size="20"
+                                                             style="color: black"/>
+        </div>
         <div class="modal-footer">
 
-            <a href="#" class="btn">Login</a>
+            <button type="submit" id="btn_tweet_reply">Commenter</button>
         </div>
     </div>
 </div>
-<button type="button" id='publishTweet' class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Éditer le profil</button>
+<script>
+
+</script>
