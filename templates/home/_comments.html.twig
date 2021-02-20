@@ -1,0 +1,11 @@
+{% for comment in comments %}
+
+    {% set id =  comment.getPosts().getId()%}
+    {% if id is  same as post.getId()  %}
+        <div class="comment">
+            <p data-id="{{ id }}" id="{{ id }}">{{ comment.body }}</p>
+        </div>
+    {% endif %}
+
+{% endfor %}
+
