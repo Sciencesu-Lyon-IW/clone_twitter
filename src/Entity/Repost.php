@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Repository\RepostRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -30,9 +31,9 @@ class Repost
     private $id;
 
     /**
-     * @var \DateTime|null
+     * @var string
      *
-     * @ORM\Column(name="createAt", type="datetime", nullable=true)
+     * @ORM\Column(name="createAt", type="string", nullable=true)
      */
     private $createat;
 
@@ -56,17 +57,32 @@ class Repost
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hasReposted;
+
+    public function __construct()
+    {
+        $this->createat = date("Y-m-d H:i:s");
+
+    }
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCreateat(): ?\DateTimeInterface
+    public function getCreateat(): ?string
     {
         return $this->createat;
     }
 
-    public function setCreateat(?\DateTimeInterface $createat): self
+    public function setCreateat(?string $createat): self
     {
         $this->createat = $createat;
 
@@ -93,6 +109,30 @@ class Repost
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?string
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(string $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getHasReposted(): ?bool
+    {
+        return $this->hasReposted;
+    }
+
+    public function setHasReposted(bool $hasReposted): self
+    {
+        $this->hasReposted = $hasReposted;
 
         return $this;
     }
