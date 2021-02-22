@@ -18,12 +18,15 @@
 {#    {% for total_post in total_posts %}#}
 {#        {{ dump(total_post) }}#}
 {#    {% endfor %}#}
+    <div>
+        <button type="submit" class="btn-follow">Follow</button>
+    </div>
     <div id='whatsHappening'>
         <div id='whatsHapIcon'><i class="far fa-user-circle"></i></div><br><br>
         <div id='tweetEditor'>
             <p class="textarea" role="textbox">
                     <p>{{ user.name }} {{ user.firstname }}</p>
-                    <p>Bio: {{ user.username }}</p>
+                    <p id="follower" data-username="{{ user.username }}">Bio: {{ user.username }}</p>
                     <p>{{ user.bio }}</p>
             <div id='tweetIcons'>
                 <div id='tweetIconsLeft'>

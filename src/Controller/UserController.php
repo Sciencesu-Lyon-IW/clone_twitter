@@ -2,17 +2,18 @@
 
 namespace App\Controller;
 
+
 use App\Entity\Posts;
 use App\Entity\User;
 use App\Form\EditType;
-use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 /**
  * @IsGranted("ROLE_USER")
  * @IsGranted("IS_AUTHENTICATED_FULLY")
@@ -59,9 +60,10 @@ class UserController extends AbstractController
     /**
      * @Route("/{username}", name="user_profile")
      * @param Request $request
+     * @param $username
      * @return Response
      */
-    public function index(Request $request, User $user, $username): Response
+    public function index(Request $request, $username): Response
     {
 
         $form = $this->createForm(EditType::class);
@@ -77,19 +79,14 @@ class UserController extends AbstractController
         if (!$post) {
             $error = 'Pas de post ici';
         }
-//        $query = 'SELECT count(posts.id) FROM posts, user, posts_user WHERE posts.id = posts_user.posts_id
-//                                  AND user.id = posts_user.user_id AND user.id =  ';
-
-//        $statement = $em->getConnection()->prepare($query);
-//        $statement->execute();
-//
-//        $total_posts = $statement->fetchAll();
-//        var_dump($total_posts);
+        $user = $em->getRepository(User::class)->findOneBy([
+            'username' => $username
+        ]);
         return $this->render('user/index.html.twig', [
             'userForm' => $form->createView(),
             'controller_name' => 'UserController',
-            'user' => $this->getUser(),
-            'posts' => $post,
+            'user' => $user,
+            'posts' => "",
 //            'total_posts' => $total_posts,
         ]);
     }
@@ -127,4 +124,45 @@ class UserController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/follow", name="ajax_follow")
+     * @param Request $request
+     * @return JsonResponse
+     * @throws BadRequestException
+     */
+    public function ajaxFollow(Request $request): JsonResponse
+    {
+        /*   if (!$request->isXmlHttpRequest() ) {
+                return new JsonResponse('Aucune donnée reçu');
+            }*/
+        // initialise les donnée a envoyé
+        dd($request->request->get('username'));
+
+        $follow = $request->request->get('username');
+       /*
+        if ($post !== '' || !$post) {
+
+            if ($body !== '' || !$body) {
+                $setPost = $this->entityManager->getRepository(Posts::class)->find($post);
+                $comment = new Comments();
+
+                $comment->setUser($this->getUser());
+                $comment->setPosts($setPost);
+                $comment->setBody($body);
+                $comment->setCreatedAt(date("Y-m-d H:i:s"));
+                $this->entityManager->persist($comment);
+
+                $this->entityManager->flush();
+
+                return new JsonResponse($request->request->all());
+            }
+            return new JsonResponse('Contenu vide');
+
+        }
+
+        return new JsonResponse('Aucune post idendifié');*/
+
+
+    }
 }

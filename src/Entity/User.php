@@ -13,6 +13,7 @@ use Symfony\Component\Uid\Uuid;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Json;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * User
@@ -21,7 +22,7 @@ use Symfony\Component\Validator\Constraints\Json;
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
-class User implements \Symfony\Component\Security\Core\User\UserInterface
+class User implements UserInterface
 {
     /**
      * @ORM\Id

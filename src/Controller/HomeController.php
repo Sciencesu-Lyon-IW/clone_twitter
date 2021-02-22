@@ -28,7 +28,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
 class HomeController extends AbstractController
 {
     private EntityManagerInterface $entityManager;
-    private Posts $posts ;
+    private Posts $posts;
     private Likes $likes;
     private string $error = '';
     public function __construct(EntityManagerInterface $entityManager)
@@ -37,11 +37,14 @@ class HomeController extends AbstractController
         $this->posts = new Posts();
         $this->likes = new Likes();
     }
+
     /**
      * @Route("/home", name="home")
+     * @return Response
      */
     public function index(): Response
     {
+
         $post = $this->entityManager->getRepository(Posts::class)->findAll();
         $comment = [];
         if (!$post) {
@@ -105,7 +108,6 @@ class HomeController extends AbstractController
 
         $entityManager->persist($posts);
         $entityManager->flush();
-
 
 
         /*new Response('Tweet publié '.$posts->getId());*/
