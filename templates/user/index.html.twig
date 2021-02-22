@@ -16,9 +16,9 @@
 
 <div id="content">
     <div id="homeDiv" class='sticky'><span id="contentHome" class='font20bold'>{{ user.name }} {{ user.firstname }}</span></div>
-{#    {% for total_post in total_posts %}#}
-{#        {{ dump(total_post) }}#}
-{#    {% endfor %}#}
+    {% for total_post in total_posts %}
+        {{ dump(total_post) }}
+    {% endfor %}
     <div id='whatsHappening'>
         <div id='whatsHapIcon'><i class="far fa-user-circle"></i></div><br><br>
         <div id='tweetEditor'>

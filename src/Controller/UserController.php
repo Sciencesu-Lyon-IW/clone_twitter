@@ -76,21 +76,21 @@ class UserController extends AbstractController
         if (!$post) {
             $error = 'Pas de post ici';
         }
-//        $query = 'SELECT count(posts.id) FROM posts, user, posts_user WHERE posts.id = posts_user.posts_id
-//                                  AND user.id = posts_user.user_id AND user.id =  ';
+        $query = 'SELECT count(posts.id) FROM posts, user, posts_user WHERE posts.id = posts_user.posts_id
+                                  AND user.id = posts_user.user_id AND user.id = '.$user->getId().' ';
 
-//        $statement = $em->getConnection()->prepare($query);
-//        $statement->execute();
-//
-//        $total_posts = $statement->fetchAll();
-//        var_dump($total_posts);
+        $statement = $em->getConnection()->prepare($query);
+        $statement->execute();
+
+        $total_posts = $statement->fetchAll();
+        var_dump($query);
 
         return $this->render('user/index.html.twig', [
             'userForm' => $form->createView(),
             'controller_name' => 'UserController',
             'user' => $this->getUser(),
             'posts' => $post,
-//            'total_posts' => $total_posts,
+            'total_posts' => $total_posts,
         ]);
     }
 
