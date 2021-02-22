@@ -62,7 +62,6 @@ class UserController extends AbstractController
      */
     public function index(Request $request, User $user, $username): Response
     {
-
         $form = $this->createForm(EditType::class);
         $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
@@ -72,25 +71,39 @@ class UserController extends AbstractController
             $em->flush();
             return $this->redirectToRoute('user_profile');
         }
-        $post = $em->getRepository(Posts::class)->findAll();
+
+        $user = $em->getRepository(User::class)->findOneBy([
+            'username' => $username
+        ]);
+
+        $post = $em->getRepository(Posts::class)->findBy([
+//            'user_id' => $user->getUserId()->getUuid()
+        ]);
+//        dd($post);
         if (!$post) {
             $error = 'Pas de post ici';
         }
-        $query = 'SELECT count(posts.id) FROM posts, user, posts_user WHERE posts.id = posts_user.posts_id
-                                  AND user.id = posts_user.user_id AND user.id = '.$user->getId().' ';
 
-        $statement = $em->getConnection()->prepare($query);
-        $statement->execute();
+        $nbpost = $em->getRepository(Posts::class)->count([
+            'id' => $post
+        ]);
+//        $query = 'SELECT count(posts.id) FROM posts, user, posts_user WHERE posts.id = posts_user.posts_id
+//                                  AND user.id = posts_user.user_id AND user.id = '.$user->getId().' ';
+//
+//        $statement = $em->getConnection()->prepare($query);
+//        $statement->execute();
+//
+//        $total_posts = $statement->fetchAll();
+//        var_dump($query);
 
-        $total_posts = $statement->fetchAll();
-        var_dump($query);
 
         return $this->render('user/index.html.twig', [
             'userForm' => $form->createView(),
             'controller_name' => 'UserController',
-            'user' => $this->getUser(),
+            'user' => $user,
             'posts' => $post,
-            'total_posts' => $total_posts,
+            'nbposts' => $nbpost,
+//            'total_posts' => $total_posts,
         ]);
     }
 

@@ -16,9 +16,9 @@
 
 <div id="content">
     <div id="homeDiv" class='sticky'><span id="contentHome" class='font20bold'>{{ user.name }} {{ user.firstname }}</span></div>
-    {% for total_post in total_posts %}
-        {{ dump(total_post) }}
-    {% endfor %}
+{#    {% for total_post in total_posts %}#}
+{#        {{ dump(total_post) }}#}
+{#    {% endfor %}#}
     <div id='whatsHappening'>
         <div id='whatsHapIcon'><i class="far fa-user-circle"></i></div><br><br>
         <div id='tweetEditor'>
@@ -78,7 +78,7 @@
                     <form id="myForm" action="{{ path('update_profile') }}" method="POST">
                     <div class="modal-body">
                             <div class="form-group">
-                                <span type="text" class="form-control" name="username" placeholder="" readonly="readonly">Username : {{ user.name }}</span>
+                                <span type="text" class="form-control" name="username" placeholder="" readonly="readonly">Username : {{ user.username }}</span>
                             </div>
                             <div class="form-group">
                                 <span type="email" class="form-control" name="email" readonly="readonly">Email : {{ user.email }}</span>
