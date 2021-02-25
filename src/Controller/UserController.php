@@ -3,9 +3,12 @@
 namespace App\Controller;
 
 
+use App\Entity\Follows;
+use App\Entity\Likes;
 use App\Entity\Posts;
 use App\Entity\User;
 use App\Form\EditType;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
@@ -20,7 +23,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
  */
 class UserController extends AbstractController
 {
+    private EntityManagerInterface $entityManager;
+    private string $error = '';
 
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
 
     /**
      * @Route("/dashboard", name="dashboard")
@@ -41,20 +50,20 @@ class UserController extends AbstractController
     * @return Response
         */
 
-/*    public function profile(Request $request, User $user): Response
-    {
+    /*    public function profile(Request $request, User $user): Response
+        {
 
-        $repository = $this->getDoctrine()->getRepository(User::class);
-        $product = $repository->find($user->getId());
-        $user = new User();
-        /*$user = new User(
-        $this->getDoctrine()->getManager()->flush();
+            $repository = $this->getDoctrine()->getRepository(User::class);
+            $product = $repository->find($user->getId());
+            $user = new User();
+            /*$user = new User(
+            $this->getDoctrine()->getManager()->flush();
 
 
-        return $this->render('home/index.html.twig', [
-            'user' => $user
-        ]);
-    }*/
+            return $this->render('home/index.html.twig', [
+                'user' => $user
+            ]);
+        }*/
 
 
     /**
@@ -65,7 +74,10 @@ class UserController extends AbstractController
      */
     public function index(Request $request, $username): Response
     {
-
+        if ($request->request->get('username'))
+        {
+            return $this->ajaxFollow($request);
+        }
         $form = $this->createForm(EditType::class);
         $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
@@ -137,32 +149,36 @@ class UserController extends AbstractController
                 return new JsonResponse('Aucune donnée reçu');
             }*/
         // initialise les donnée a envoyé
-        dd($request->request->get('username'));
 
-        $follow = $request->request->get('username');
-       /*
-        if ($post !== '' || !$post) {
 
-            if ($body !== '' || !$body) {
-                $setPost = $this->entityManager->getRepository(Posts::class)->find($post);
-                $comment = new Comments();
+        $follower = $request->request->get('username');
 
-                $comment->setUser($this->getUser());
-                $comment->setPosts($setPost);
-                $comment->setBody($body);
-                $comment->setCreatedAt(date("Y-m-d H:i:s"));
-                $this->entityManager->persist($comment);
+        if ($follower !== '' || !$follower) {
+            $getFollower = $this->entityManager->getRepository(User::class)->findOneBy(
+                [
+                    'username' =>  $follower
+                ]
+            );
 
-                $this->entityManager->flush();
-
-                return new JsonResponse($request->request->all());
+            if (!$getFollower) {
+                return new JsonResponse('aucun membre associé');
             }
-            return new JsonResponse('Contenu vide');
+            if ()
+            $follows = new Follows();
+            $follows->setFollowing($this->getUser())
+                ->setFollowers($getFollower->getId())
+                ->setCreateAt(date("Y-m-d H:i:s"))
+                ->setHasFollow(false);
+
+            $this->entityManager->persist($follows);
+            $this->entityManager->flush();
+
+
+            return new JsonResponse($request->request->all());
 
         }
 
-        return new JsonResponse('Aucune post idendifié');*/
-
+        return new JsonResponse('Aucune post idendifié');
 
     }
 }

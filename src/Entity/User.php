@@ -130,24 +130,7 @@ class User implements UserInterface
      */
     private $mediaUser;
 
-    /**
-     * @var Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Followers", inversedBy="user", cascade={"persist"})
-     * @ORM\JoinTable(name="user_has_followers",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="followers_id", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $followers;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Posts::class, mappedBy="user_id")
-     */
     private $posts;
 
     /**
@@ -156,7 +139,6 @@ class User implements UserInterface
     public function __construct()
     {
         $this->mediaUser = new ArrayCollection();
-        $this->followers = new ArrayCollection();
         $this->posts = new ArrayCollection();
     }
 
@@ -382,29 +364,6 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Followers[]
-     */
-    public function getFollowers(): Collection
-    {
-        return $this->followers;
-    }
-
-    public function addFollower(Followers $follower): self
-    {
-        if (!$this->followers->contains($follower)) {
-            $this->followers[] = $follower;
-        }
-
-        return $this;
-    }
-
-    public function removeFollower(Followers $follower): self
-    {
-        $this->followers->removeElement($follower);
-
-        return $this;
-    }
 
     /**
      * @return Collection|Posts[]
