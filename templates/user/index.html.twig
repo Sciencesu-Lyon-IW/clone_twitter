@@ -18,9 +18,17 @@
         {#    {% for total_post in total_posts %}#}
         {#        {{ dump(total_post) }}#}
         {#    {% endfor %}#}
-        <div>
-            <button type="submit" class="btn-follow">Follow</button>
-        </div>
+        {% if follow is not null %}
+                <div>
+                    <button type="submit" class="btn-follow">
+            {% if follow.hasFollow is same as(true) %}
+             Unfollowing
+                {% else %}
+                    Follow
+                    {% endif %}
+                </button>
+                </div>
+            {%  endif %}
         <div id='whatsHappening'>
             <div id='whatsHapIcon'><i class="far fa-user-circle"></i></div><br><br>
             <div id='tweetEditor'>

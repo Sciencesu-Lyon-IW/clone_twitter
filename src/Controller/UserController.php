@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Entity\Follows;
 use App\Entity\Likes;
 use App\Entity\Posts;
+use App\Entity\Repost;
 use App\Entity\User;
 use App\Form\EditType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -66,42 +67,6 @@ class UserController extends AbstractController
         }*/
 
 
-    /**
-     * @Route("/{username}", name="user_profile")
-     * @param Request $request
-     * @param $username
-     * @return Response
-     */
-    public function index(Request $request, $username): Response
-    {
-        if ($request->request->get('username'))
-        {
-            return $this->ajaxFollow($request);
-        }
-        $form = $this->createForm(EditType::class);
-        $form->handleRequest($request);
-        $em = $this->getDoctrine()->getManager();
-        if ($form->isSubmitted() && $form->isValid()) {
-            $user = $form->getData();
-            $em->persist($user);
-            $em->flush();
-            return $this->redirectToRoute('user_profile');
-        }
-        $post = $em->getRepository(Posts::class)->findAll();
-        if (!$post) {
-            $error = 'Pas de post ici';
-        }
-        $user = $em->getRepository(User::class)->findOneBy([
-            'username' => $username
-        ]);
-        return $this->render('user/index.html.twig', [
-            'userForm' => $form->createView(),
-            'controller_name' => 'UserController',
-            'user' => $user,
-            'posts' => "",
-//            'total_posts' => $total_posts,
-        ]);
-    }
 
     /**
      * @Route("/update/profile", name="update_profile", methods={"POST"})
@@ -152,6 +117,7 @@ class UserController extends AbstractController
 
 
         $follower = $request->request->get('username');
+        $follows = new Follows();
 
         if ($follower !== '' || !$follower) {
             $getFollower = $this->entityManager->getRepository(User::class)->findOneBy(
@@ -163,22 +129,86 @@ class UserController extends AbstractController
             if (!$getFollower) {
                 return new JsonResponse('aucun membre associé');
             }
-            if ()
-            $follows = new Follows();
-            $follows->setFollowing($this->getUser())
-                ->setFollowers($getFollower->getId())
-                ->setCreateAt(date("Y-m-d H:i:s"))
-                ->setHasFollow(false);
+            $follow_find = $this->entityManager->getRepository(Follows::class)->findBy([
+                'following' => $this->getUser()->getId(),
+                'followers' => $getFollower->getId()
+            ]);
 
-            $this->entityManager->persist($follows);
+            if (!$follow_find){
+
+                $follows->setFollowing($this->getUser()->getId())
+                    ->setFollowers($getFollower->getId())
+                    ->setCreateAt(date("Y-m-d H:i:s"))
+                    ->setHasFollow(true);
+                $this->entityManager->persist($follows);
+                $this->entityManager->flush();
+                return new JsonResponse(true);
+
+            }
+            $follow_find = $follow_find[0];
+
+            if ($follow_find->getHasFollow() !== true){
+                $follow_find->setHasFollow(true)
+                            ->setUpdateAt(date("Y-m-d H:i:s"));
+
+                $this->entityManager->flush();
+                return new JsonResponse(true);
+
+            }
+
+            $follow_find->setUpdateAt(date("Y-m-d H:i:s"))
+                         ->setHasFollow(false);
+
             $this->entityManager->flush();
+            return new JsonResponse(false);
 
 
-            return new JsonResponse($request->request->all());
+
 
         }
 
-        return new JsonResponse('Aucune post idendifié');
+        return new JsonResponse('Aucune follower idendifié');
 
+    }
+
+
+    /**
+     * @Route("/{username}", name="user_profile")
+     * @param Request $request
+     * @param $username
+     * @return Response
+     */
+    public function index(Request $request, $username): Response
+    {
+
+        $form = $this->createForm(EditType::class);
+        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+            $em->persist($user);
+            $em->flush();
+            return $this->redirectToRoute('user_profile');
+        }
+        $post = $em->getRepository(Posts::class)->findAll();
+        if (!$post) {
+            $error = 'Pas de post ici';
+        }
+        $user = $em->getRepository(User::class)->findOneBy([
+            'username' => $username
+        ]);
+        $follow_find = $this->entityManager->getRepository(Follows::class)->findBy([
+            'following' => $this->getUser()->getId(),
+            'followers' => (string) $user->getId()
+        ]);
+
+        return $this->render('user/index.html.twig', [
+            'userForm' => $form->createView(),
+            'controller_name' => 'UserController',
+            'user' => $user,
+            'posts' => "",
+            'follow' => $follow_find[0],
+//            'total_posts' => $total_posts,
+        ]);
     }
 }
