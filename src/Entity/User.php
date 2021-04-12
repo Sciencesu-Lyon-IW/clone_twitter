@@ -13,6 +13,7 @@ use Symfony\Component\Uid\Uuid;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Json;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * User
@@ -21,7 +22,7 @@ use Symfony\Component\Validator\Constraints\Json;
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
-class User implements \Symfony\Component\Security\Core\User\UserInterface
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -129,24 +130,7 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
      */
     private $mediaUser;
 
-    /**
-     * @var Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Followers", inversedBy="user", cascade={"persist"})
-     * @ORM\JoinTable(name="user_has_followers",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="followers_id", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $followers;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Posts::class, mappedBy="user_id")
-     */
     private $posts;
 
     /**
@@ -155,11 +139,10 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
     public function __construct()
     {
         $this->mediaUser = new ArrayCollection();
-        $this->followers = new ArrayCollection();
         $this->posts = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -381,29 +364,6 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Followers[]
-     */
-    public function getFollowers(): Collection
-    {
-        return $this->followers;
-    }
-
-    public function addFollower(Followers $follower): self
-    {
-        if (!$this->followers->contains($follower)) {
-            $this->followers[] = $follower;
-        }
-
-        return $this;
-    }
-
-    public function removeFollower(Followers $follower): self
-    {
-        $this->followers->removeElement($follower);
-
-        return $this;
-    }
 
     /**
      * @return Collection|Posts[]

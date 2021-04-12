@@ -2,24 +2,35 @@
 
 namespace App\Controller;
 
+
+use App\Entity\Follows;
+use App\Entity\Likes;
 use App\Entity\Posts;
+use App\Entity\Repost;
 use App\Entity\User;
 use App\Form\EditType;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 /**
  * @IsGranted("ROLE_USER")
  * @IsGranted("IS_AUTHENTICATED_FULLY")
  */
 class UserController extends AbstractController
 {
+    private EntityManagerInterface $entityManager;
+    private string $error = '';
 
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
 
     /**
      * @Route("/dashboard", name="dashboard")
@@ -39,22 +50,18 @@ class UserController extends AbstractController
     * @param User $user
     * @return Response
         */
-    public function profile(Request $request, User $user): Response
-    {
 
-        $repository = $this->getDoctrine()->getRepository(User::class);
-        $product = $repository->find($user->getId());
-        $user = new User();
-        /*$user = new User();*/
-        $this->getDoctrine()->getManager()->flush();
+    /*    public function profile(Request $request, User $user): Response
+        {
 
-
-        return $this->render('home/index.html.twig', [
-            'user' => $user
-        ]);
-    }
+            $repository = $this->getDoctrine()->getRepository(User::class);
+            $product = $repository->find($user->getId());
+            $user = new User();
+            /*$user = new User(
+            $this->getDoctrine()->getManager()->flush();
 
 
+<<<<<<< HEAD
     /**
      * @Route("/{username}", name="user_profile")
      * @param Request $request
@@ -106,6 +113,14 @@ class UserController extends AbstractController
 //            'total_posts' => $total_posts,
         ]);
     }
+=======
+            return $this->render('home/index.html.twig', [
+                'user' => $user
+            ]);
+        }*/
+
+
+>>>>>>> lounes
 
     /**
      * @Route("/update/profile", name="update_profile", methods={"POST"})
@@ -140,4 +155,114 @@ class UserController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/follow", name="ajax_follow")
+     * @param Request $request
+     * @return JsonResponse
+     * @throws BadRequestException
+     */
+    public function ajaxFollow(Request $request): JsonResponse
+    {
+        /*   if (!$request->isXmlHttpRequest() ) {
+                return new JsonResponse('Aucune donnée reçu');
+            }*/
+        // initialise les donnée a envoyé
+
+
+        $follower = $request->request->get('username');
+        $follows = new Follows();
+
+        if ($follower !== '' || !$follower) {
+            $getFollower = $this->entityManager->getRepository(User::class)->findOneBy(
+                [
+                    'username' =>  $follower
+                ]
+            );
+
+            if (!$getFollower) {
+                return new JsonResponse('aucun membre associé');
+            }
+            $follow_find = $this->entityManager->getRepository(Follows::class)->findBy([
+                'following' => $this->getUser()->getId(),
+                'followers' => $getFollower->getId()
+            ]);
+
+            if (!$follow_find){
+
+                $follows->setFollowing($this->getUser()->getId())
+                    ->setFollowers($getFollower->getId())
+                    ->setCreateAt(date("Y-m-d H:i:s"))
+                    ->setHasFollow(true);
+                $this->entityManager->persist($follows);
+                $this->entityManager->flush();
+                return new JsonResponse(true);
+
+            }
+            $follow_find = $follow_find[0];
+
+            if ($follow_find->getHasFollow() !== true){
+                $follow_find->setHasFollow(true)
+                            ->setUpdateAt(date("Y-m-d H:i:s"));
+
+                $this->entityManager->flush();
+                return new JsonResponse(true);
+
+            }
+
+            $follow_find->setUpdateAt(date("Y-m-d H:i:s"))
+                         ->setHasFollow(false);
+
+            $this->entityManager->flush();
+            return new JsonResponse(false);
+
+
+
+
+        }
+
+        return new JsonResponse('Aucune follower idendifié');
+
+    }
+
+
+    /**
+     * @Route("/{username}", name="user_profile")
+     * @param Request $request
+     * @param $username
+     * @return Response
+     */
+    public function index(Request $request, $username): Response
+    {
+
+        $form = $this->createForm(EditType::class);
+        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+            $em->persist($user);
+            $em->flush();
+            return $this->redirectToRoute('user_profile');
+        }
+        $post = $em->getRepository(Posts::class)->findAll();
+        if (!$post) {
+            $error = 'Pas de post ici';
+        }
+        $user = $em->getRepository(User::class)->findOneBy([
+            'username' => $username
+        ]);
+        $follow_find = $this->entityManager->getRepository(Follows::class)->findBy([
+            'following' => $this->getUser()->getId(),
+            'followers' => (string) $user->getId()
+        ]);
+
+        return $this->render('user/index.html.twig', [
+            'userForm' => $form->createView(),
+            'controller_name' => 'UserController',
+            'user' => $user,
+            'posts' => "",
+            'follow' => $follow_find[0],
+//            'total_posts' => $total_posts,
+        ]);
+    }
 }

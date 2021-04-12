@@ -2,27 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Followers;
+use App\Entity\Follows;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+
 /**
- * @method Followers|null find($id, $lockMode = null, $lockVersion = null)
- * @method Followers|null findOneBy(array $criteria, array $orderBy = null)
- * @method Followers[]    findAll()
- * @method Followers[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Follows|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Follows|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Follows[]    findAll()
+ * @method Follows[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class FollowersRepository extends ServiceEntityRepository
+class FollowsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Followers::class);
+        parent::__construct($registry, Follows::class);
     }
 
     // /**
-    //  * @return Followers[] Returns an array of Followers objects
+    //  * @return Follows[] Returns an array of Follows objects
     //  */
     /*
     public function findByExampleField($value)
@@ -39,7 +37,7 @@ class FollowersRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Followers
+    public function findOneBySomeField($value): ?Follows
     {
         return $this->createQueryBuilder('f')
             ->andWhere('f.exampleField = :val')

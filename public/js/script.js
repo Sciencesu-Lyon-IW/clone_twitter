@@ -102,46 +102,47 @@ $(document).ready(function (qualifiedName){
         */
 
 
-        let btnTweetReply = $('button#btn_tweet_reply');
-        let textAreaTweetReply = $("input#textarea_tweet_reply");
-        btnTweetReply.click(function (e){
-            e.preventDefault(); // annule l'action du lien
-            console.log("bouton tweet reply clické");
-            // console.log(textAreaTweetReply[1].value);//or inputs[i].val() will also work
-            $.ajax({
-                url: '/comment/tweet',
-                type: "POST",
-                dataType: "json",
-                data: {
-                    'post': post.toString(),
-                    'comment': textAreaTweetReply[1].value
-                },
-                async: true,
-                success: function (data) {
-                    e.preventDefault();
+    let btnTweetReply = $('button#btn_tweet_reply');
+    let textAreaTweetReply = $("input#textarea_tweet_reply");
+    btnTweetReply.click(function (e){
+        e.preventDefault(); // annule l'action du lien
+        console.log("bouton tweet reply clické");
+        // console.log(textAreaTweetReply[1].value);//or inputs[i].val() will also work
+        $.ajax({
+            url: '/comment/tweet',
+            type: "POST",
+            dataType: "json",
+            data: {
+                'post': post.toString(),
+                'comment': textAreaTweetReply[1].value
+            },
+            async: true,
+            success: function (data) {
+                e.preventDefault();
 
-                    let datas = data.output;
-                    console.log(datas);
-                    $('#likes').css({"color": "rgb(227, 57, 109)"});
+                let datas = data.output;
+                console.log(datas);
+                $('#likes').css({"color": "rgb(227, 57, 109)"});
 
-                },
-                error: function (data)
-                {
-                    e.preventDefault();
+            },
+            error: function (data)
+            {
+                e.preventDefault();
 
 
-                    console.log("aucune data : "  );
-                    $('#likes').css({"color": "rgb(227, 57, 109)"});
+                console.log("aucune data : "  );
+                $('#likes').css({"color": "rgb(227, 57, 109)"});
 
-                }
-            })
+            }
         })
+    })
 
 
     $('.closemodal').click(function (e) {
         e.preventDefault();
         $('.modal').removeClass('opened');
-            $('input').val('');
+
+        $('input').val(''); // Vide le champ quand le modal est fermé
 
     });
 
@@ -149,8 +150,50 @@ $(document).ready(function (qualifiedName){
         console.log($('.comment p').children().length);
     }
 
+    /*
+        * FOLLOW *
+    */
+
+    let btnFollow = $('.btn-follow');
+
+    btnFollow.click(function (e){
+        let username =$('#follower').attr("data-username");
+        console.log(username    );
+
+        e.preventDefault(); // annule l'action du lien
+        console.log("bouton follow reply clické");
+        // console.log(textAreaTweetReply[1].value);//or inputs[i].val() will also work
+        $.ajax({
+            url: '/follow',
+            type: "POST",
+            dataType: "json",
+            data: {
+                'username': username
+            },
+            async: true,
+            success: function (data, response) {
+                e.preventDefault();
+
+                let getDataResponse = data.toString();
+                if (getDataResponse !== 'true')
+                {
+                    btnFollow.text("Follow");
+                }
+                else
+                {
+                    btnFollow.text("Unfollowing");
+                }
 
 
+
+
+            },
+            error: function (data, response)
+            {
+                e.preventDefault();
+            }
+        })
+    })
 });
 
 
